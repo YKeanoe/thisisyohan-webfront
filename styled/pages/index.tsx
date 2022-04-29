@@ -13,13 +13,13 @@ export const MainSection = styled.div`
   align-items: center;
 `
 export const Banner = styled.div`
-  background-color: #2B2D42;
+  background-color: #2b2d42;
   height: 300px;
   width: 100%;
   padding: 10vh 0;
   box-sizing: border-box;
   box-shadow: 0px 0px 20px 0px rgb(0 0 0 / 50%);
-  color: #EDF2F4;
+  color: #edf2f4;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -30,7 +30,7 @@ export const BannerTitle = styled.h1`
   font-size: 3em;
   text-transform: uppercase;
   font-weight: 400;
-  letter-spacing: .2em;
+  letter-spacing: 0.2em;
   text-align: center;
 `
 export const BannerDescription = styled.p`
@@ -44,8 +44,8 @@ export const IntroContainer = styled.div`
 `
 export const IntroInnerContainer = styled.div`
   width: 100%;
-  background-color: rgba(0,0,0,0.5);
-  color: #EDF2F4;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #edf2f4;
   display: flex;
   justify-content: center;
   align-items: center;

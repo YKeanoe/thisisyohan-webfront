@@ -6,13 +6,17 @@ import Layout from 'layouts'
 import App, { AppProps } from 'next/app'
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
-const clientSideEmotionCache = createEmotionCache();
+const clientSideEmotionCache = createEmotionCache()
 
 interface MyAppProps extends AppProps {
-  emotionCache?: EmotionCache;
+  emotionCache?: EmotionCache
 }
 
-export const MyApp = ({ Component, pageProps, emotionCache = clientSideEmotionCache}: MyAppProps) => {
+export const MyApp = ({
+  Component,
+  pageProps,
+  emotionCache = clientSideEmotionCache,
+}: MyAppProps) => {
   const router = useRouter()
 
   useEffect(() => {
@@ -29,12 +33,12 @@ export const MyApp = ({ Component, pageProps, emotionCache = clientSideEmotionCa
     }
   }, [router.events])
 
-
   const metatags: HeadProps['metatags'] = [
     // Default Global metatags
     {
       name: 'keywords',
-      content: 'Yohanes Keanoe, Fullstack Developer, Developer, Indonesia, Jakarta',
+      content:
+        'Yohanes Keanoe, Fullstack Developer, Developer, Indonesia, Jakarta',
     },
   ]
 
@@ -42,10 +46,7 @@ export const MyApp = ({ Component, pageProps, emotionCache = clientSideEmotionCa
     <CacheProvider value={emotionCache}>
       {globalStyles}
 
-      <HeadComponent
-        title="Yohanes Keanoe"
-        metatags={metatags}
-      >
+      <HeadComponent title="Yohanes Keanoe" metatags={metatags}>
         {/* <link
           rel="apple-touch-icon"
           sizes="180x180"
@@ -54,9 +55,9 @@ export const MyApp = ({ Component, pageProps, emotionCache = clientSideEmotionCa
         <link rel="manifest" href="/site.webmanifest" />
       </HeadComponent>
 
-          <Layout>
-            <Component {...pageProps} />
-          </Layout>
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
     </CacheProvider>
   )
 }

@@ -13,7 +13,7 @@ export const globalStyles = (
     styles={css`
       ${Fonts}
 
-			*, *::after, *::before {
+      *, *::after, *::before {
         box-sizing: border-box;
       }
 
@@ -48,7 +48,6 @@ export const globalStyles = (
           font-size: 16px;
         }
       }
-
 
       a,
       a:hover,

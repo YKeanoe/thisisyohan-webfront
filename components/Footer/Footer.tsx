@@ -29,9 +29,7 @@ const Footer = () => {
   return (
     <Container>
       <InnerContainer>
-        <CopyrightText>
-          &#169; Yohanes Keanoe 2022
-        </CopyrightText>
+        <CopyrightText>&#169; Yohanes Keanoe 2022</CopyrightText>
       </InnerContainer>
     </Container>
   )

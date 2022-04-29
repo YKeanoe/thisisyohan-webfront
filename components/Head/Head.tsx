@@ -12,7 +12,7 @@ export interface Props {
     seperator?: string
     socialtitle?: boolean
   }
-  children?: JSX.Element | JSX.Element[] | string | string[];
+  children?: JSX.Element | JSX.Element[] | string | string[]
 }
 
 const HeadComponent: React.FC<Props> = ({
@@ -27,7 +27,8 @@ const HeadComponent: React.FC<Props> = ({
     socialtitle = true,
   } = options
 
-  const printTitle = (title ? title : '') + (sitename ? `${seperator}ThisIsYohan` : '')
+  const printTitle =
+    (title ? title : '') + (sitename ? `${seperator}ThisIsYohan` : '')
 
   return (
     <Head>

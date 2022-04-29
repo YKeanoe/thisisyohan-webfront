@@ -1,10 +1,19 @@
 import HeadComponent, { Props as HeadProps } from '@/components/Head/Head'
-import { Banner, BannerDescription, BannerTitle, Container, Intro, IntroContainer, IntroInnerContainer } from '@/styled/pages'
+import {
+  Banner,
+  BannerDescription,
+  BannerTitle,
+  Container,
+  Intro,
+  IntroContainer,
+  IntroInnerContainer,
+} from '@/styled/pages'
 import { MainSection } from '@/styled/pages/index'
 import { Section } from '@/styled/shared'
 
 const Home = () => {
-  const description = 'A Full Stack Web Developer with more than 4 years experiences on multiple languages and frameworks from back to front end.'
+  const description =
+    'A Full Stack Web Developer with more than 4 years experiences on multiple languages and frameworks from back to front end.'
 
   const metatags: HeadProps['metatags'] = [
     // General metatags
@@ -34,19 +43,12 @@ const Home = () => {
 
   return (
     <Container>
-      <HeadComponent
-        title="Yohanes Keanoe"
-        metatags={metatags}
-      />
+      <HeadComponent title="Yohanes Keanoe" metatags={metatags} />
 
       <MainSection>
         <Banner>
-          <BannerTitle>
-            Yohanes Keanoe
-          </BannerTitle>
-          <BannerDescription>
-            Full Stack Web Developer
-          </BannerDescription>
+          <BannerTitle>Yohanes Keanoe</BannerTitle>
+          <BannerDescription>Full Stack Web Developer</BannerDescription>
         </Banner>
       </MainSection>
 
@@ -54,7 +56,10 @@ const Home = () => {
         <IntroContainer>
           <IntroInnerContainer>
             <Intro>
-              Hi, my name is Yohanes and I am a full-stack web developer. I have been developing softwares for 4 years ranging from games, websites, databases, and applications. From cloud server to back-end to front-end, you can take your pick.
+              Hi, my name is Yohanes and I am a full-stack web developer. I
+              have been developing softwares for 4 years ranging from
+              games, websites, databases, and applications. From cloud
+              server to back-end to front-end, you can take your pick.
             </Intro>
           </IntroInnerContainer>
         </IntroContainer>

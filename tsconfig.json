@@ -26,6 +26,9 @@
       "@/styled/*": [
         "styled/*"
       ],
+      "@/utils/*": [
+        "utils/*"
+      ],
       "@/types/*": [
         "types/*"
       ],

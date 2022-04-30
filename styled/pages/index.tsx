@@ -168,3 +168,59 @@ export const SkillLabel = styled.p`
   opacity: 0;
   transition: opacity 0.4s ease-in-out;
 `
+export const GithubContainer = styled.div`
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`
+export const GithubInnerContainer = styled.div`
+  --square-size: 15px;
+  --square-gap: 5px;
+  --week-width: calc(var(--square-size) + var(--square-gap));
+`
+export const GithubWrapper = styled.div`
+  display: inline-grid;
+  grid-template-areas: 'empty months' 'days squares';
+  grid-gap: 10px;
+  grid-template-columns: auto 1fr;
+`
+export const GithubMonths = styled.ul`
+  list-style-type: none;
+  grid-area: months;
+  display: grid;
+  grid-template-columns:
+    calc(var(--week-width) * 4) /* Jan */
+    calc(var(--week-width) * 4) /* Feb */
+    calc(var(--week-width) * 4) /* Mar */
+    calc(var(--week-width) * 5) /* Apr */
+    calc(var(--week-width) * 4) /* May */
+    calc(var(--week-width) * 4) /* Jun */
+    calc(var(--week-width) * 5) /* Jul */
+    calc(var(--week-width) * 4) /* Aug */
+    calc(var(--week-width) * 4) /* Sep */
+    calc(var(--week-width) * 5) /* Oct */
+    calc(var(--week-width) * 4) /* Nov */
+    calc(var(--week-width) * 5) /* Dec */;
+`
+export const GithubDays = styled.ul`
+  grid-area: days;
+  list-style-type: none;
+  display: grid;
+  grid-gap: var(--square-gap);
+  grid-template-rows: repeat(7, var(--square-size));
+`
+export const GithubSquares = styled.ul`
+  grid-area: squares;
+  list-style-type: none;
+  display: grid;
+  grid-gap: var(--square-gap);
+  grid-template-rows: repeat(7, var(--square-size));
+  grid-auto-flow: column;
+  grid-auto-columns: var(--square-size);
+`
+export const GithubSquare = styled.li`
+  height: var(--square-size);
+  width: var(--square-size);
+  background: red;
+`

@@ -163,14 +163,14 @@ const Background = ({ style }: Props) => {
         <Wrapper>
           <path
             fill="none"
-            stroke-miterlimit="10"
+            strokeMiterlimit="10"
             d="M-2.927,23.867c0,0,0.075-2.367,5.827-2.367s29.1,0,29.1,0
             s6.508,0.377,13.749,6.659C54.5,35.75,54.5,34.688,54.5,37.663c0,0.917,0,15.337,0,15.337s0,2.688-15.559,14.614
             C24.755,78.487,14.675,86.5,10.653,86.5c-5.252,0-6.536,0-6.536,0s-4.772,0-5.219-2.735"
           />
           <path
             fill="none"
-            stroke-miterlimit="10"
+            strokeMiterlimit="10"
             d="M35.792-2.781c0,0,20.604,16.953,24.417,19.641
           s9.854,9.64,20.229,9.64s92.563,0,92.563,0s12.75,0.667,18.083,6.583s11.583,9.5,17,9.75s79.003-0.25,86.67-0.25
           c3.963,0,14.397-4.785,22.168-10.66c12.33-9.321,25.719-18.982,27.958-20.746c23.908-18.833,26.723-20.865,26.723-20.865
@@ -179,13 +179,13 @@ const Background = ({ style }: Props) => {
           />
           <path
             fill="none"
-            stroke-miterlimit="10"
+            strokeMiterlimit="10"
             d="M146,39.5h-32c0,0-3.125-0.007-8.428,3.799
           c-4.012,2.88-79.328,59.026-79.328,59.026"
           />
           <line
             fill="none"
-            stroke-miterlimit="10"
+            strokeMiterlimit="10"
             x1="52.88"
             y1="97.282"
             x2="80.67"
@@ -193,7 +193,7 @@ const Background = ({ style }: Props) => {
           />
           <path
             fill="none"
-            stroke-miterlimit="10"
+            strokeMiterlimit="10"
             d="M-0.083,176.896c0,0,119.875-88.782,123.708-91.699
           c3.833-2.916,9.042-4.697,13.042-4.697c2.691,0,144.833-0.125,154.896-0.125c26.313,0,45.938-34.875,65.25-34.875
           c16.937,0,426.853,0,437.187,0s9.166-7.038,9.5-8.372S803.5-2,803.5-2h71v2c0,0,0,21.711,0,25
@@ -201,32 +201,32 @@ const Background = ({ style }: Props) => {
           />
           <path
             fill="none"
-            stroke-miterlimit="10"
+            strokeMiterlimit="10"
             d="M532.048,30.5c0,0,1.246-14.799,20.09-14.799
           c18.807,0,19.978,14.799,19.978,14.799s-157.433,0-208.515,0c-23.6,0-48.225,38-68.6,38H123.628c0,0-0.385-10.466,14.308-10.466
           c14.693,0,13.736,10.466,13.736,10.466"
           />
           <path
             fill="none"
-            stroke-miterlimit="10"
+            strokeMiterlimit="10"
             d="M131.515,68.5c0,0,0-4.783,6.487-4.783
           c5.897,0,5.897,4.783,5.897,4.783"
           />
           <path
             fill="none"
-            stroke-miterlimit="10"
+            strokeMiterlimit="10"
             d="M583.532,73.453c0,6.931,8.027,8.953,12.98,8.953
           s11.786-2.732,11.786-9.223S598,64.5,598,64.5H369c0,0-0.951,4.362-6.655,4.362c-6.368,0-6.368-4.776-6.368-4.776"
           />
           <path
             fill="none"
-            stroke-miterlimit="10"
+            strokeMiterlimit="10"
             d="M376.584,64.5c0,0,0.442-10.452-14.328-10.452
           S348.327,64.5,348.327,64.5s-0.456,10.332,14.125,10.332"
           />
           <path
             fill="#2B2D42"
-            stroke-miterlimit="10"
+            strokeMiterlimit="10"
             d="M595.466,77.319c-2.77,0-4.923-1.538-4.923-4.307s2.813-3.56,4.923-3.56
           s5.801,1.392,5.801,3.794L595.466,77.319z"
           />
@@ -241,7 +241,7 @@ const Background = ({ style }: Props) => {
 
           <path
             fill="none"
-            stroke-miterlimit="10"
+            strokeMiterlimit="10"
             d="M41.333,276.667l0.036,16.833c0,0-11.369,0-19.703,0
           c-4.955,0-8.167-4.547-8.167-9.547c0-2.864,0-83.62,0-89.62s4.76-11.399,11.052-16.056s99.478-73.62,101.982-75.619
           c7.67-6.18,13.479-6.158,19.466-6.158s190,0,230.585,0c10.987,0,12.395-0.744,23.213,6.459
@@ -250,7 +250,7 @@ const Background = ({ style }: Props) => {
           />
           <path
             fill="none"
-            stroke-miterlimit="10"
+            strokeMiterlimit="10"
             d="M35.333,269.667l0.036,23.833c0,0-5.369,0-13.703,0
           c-4.955,0-8.167-4.547-8.167-9.547c0-2.864,0-83.619,0-89.62c0-6,4.76-11.399,11.052-16.056s99.478-73.62,101.982-75.619
           c7.67-6.18,13.479-6.158,19.466-6.158s190,0,230.585,0c10.987,0,12.395-0.744,23.213,6.459
@@ -259,7 +259,7 @@ const Background = ({ style }: Props) => {
           />
           <path
             fill="none"
-            stroke-miterlimit="10"
+            strokeMiterlimit="10"
             d="M29.333,263.667l0.036,29.833c0,0,0.631,0-7.703,0
           c-4.955,0-8.167-4.547-8.167-9.547c0-2.864,0-83.619,0-89.619s4.76-11.4,11.052-16.057c6.292-4.657,99.478-73.62,101.982-75.619
           c7.67-6.18,13.479-6.158,19.466-6.158s190,0,230.585,0c10.987,0,12.395-0.744,23.213,6.459
@@ -268,7 +268,7 @@ const Background = ({ style }: Props) => {
           />
           <path
             fill="none"
-            stroke-miterlimit="10"
+            strokeMiterlimit="10"
             d="M24.333,259.667l0.036,33.833c0,0-1.973,0-2.703,0
           c-4.955,0-8.167-4.547-8.167-9.547c0-2.864,0-83.619,0-89.62c0-6,4.76-11.399,11.052-16.056s99.478-73.62,101.982-75.619
           c7.67-6.18,13.479-6.158,19.466-6.158s190,0,230.585,0c10.987,0,12.395-0.744,23.213,6.459
@@ -277,7 +277,7 @@ const Background = ({ style }: Props) => {
           />
           <path
             fill="none"
-            stroke-miterlimit="10"
+            strokeMiterlimit="10"
             d="M771.126,234.5c0,0-1.074,15.618,20.895,15.618S813,234.5,813,234.5
           s-197.108,0-224,0c-9.197,0-13.573-0.979-26.428-10.517c-39.717-29.468-151.022-113.2-162.774-121.024
           c-10.818-7.203-12.226-6.459-23.213-6.459c-40.585,0-224.599,0-230.585,0s-11.796-0.022-19.466,6.158
@@ -287,7 +287,7 @@ const Background = ({ style }: Props) => {
 
           <path
             fill="none"
-            stroke-miterlimit="10"
+            strokeMiterlimit="10"
             d="M41.333,276.667l0.036,16.833c0,0-11.369,0-19.703,0
           c-4.955,0-8.167-4.547-8.167-9.547c0-2.864,0-83.62,0-89.62s4.76-11.399,11.052-16.056s99.478-73.62,101.982-75.619
           c7.67-6.18,13.479-6.158,19.466-6.158s190,0,230.585,0c10.987,0,12.395-0.744,23.213,6.459
@@ -296,7 +296,7 @@ const Background = ({ style }: Props) => {
           />
           <line
             fill="none"
-            stroke-miterlimit="10"
+            strokeMiterlimit="10"
             x1="35.333"
             y1="269.667"
             x2="35.369"
@@ -304,7 +304,7 @@ const Background = ({ style }: Props) => {
           />
           <line
             fill="none"
-            stroke-miterlimit="10"
+            strokeMiterlimit="10"
             x1="29.333"
             y1="263.667"
             x2="29.369"
@@ -312,7 +312,7 @@ const Background = ({ style }: Props) => {
           />
           <line
             fill="none"
-            stroke-miterlimit="10"
+            strokeMiterlimit="10"
             x1="24.333"
             y1="259.667"
             x2="24.369"
@@ -320,13 +320,13 @@ const Background = ({ style }: Props) => {
           />
           <path
             fill="none"
-            stroke-miterlimit="10"
+            strokeMiterlimit="10"
             d="M19.089,293.053l-0.026-35.428"
           />
 
           <path
             fill="none"
-            stroke-miterlimit="10"
+            strokeMiterlimit="10"
             d="M183,121.5c0,0-39.953,0-46.169,0
           c-5.361,0-10.755,2.536-12.932,4.187c-2.127,1.613-36.413,26.839-39.209,28.929c-2.251,1.682-6.189,6.48-6.189,12.024
           c0,7.758,0,181.36,0,181.36s-9.512-0.079-9.512,6.784s7.04,7.217,9.603,7.217s9.75-0.884,9.75-7.099
@@ -344,54 +344,54 @@ const Background = ({ style }: Props) => {
           />
           <path
             fill="none"
-            stroke-miterlimit="10"
+            strokeMiterlimit="10"
             d="M78.501,327.08c0,0-3.125-0.026-3.125,2.229
           c0,2.255,2.313,2.371,3.155,2.371c0.842,0,3.204-0.29,3.204-2.333C81.734,327.093,78.859,327.08,78.501,327.08"
           />
           <path
             fill="none"
-            stroke-miterlimit="10"
+            strokeMiterlimit="10"
             d="M78.547,335.08c0,0-6.424-0.054-6.424,4.582s4.754,4.874,6.485,4.874
           c1.73,0,6.584-0.596,6.584-4.796C85.192,335.106,79.283,335.08,78.547,335.08"
           />
           <path
             fill="none"
-            stroke-miterlimit="10"
+            strokeMiterlimit="10"
             d="M78.5,274v-8c0,0,5.531,0,5.531,4.094S78.5,274,78.5,274z"
           />
           <path
             fill="none"
-            stroke-miterlimit="10"
+            strokeMiterlimit="10"
             d="M78.5,263v-8c0,0,5.531,0,5.531,4.094S78.5,263,78.5,263z"
           />
           <path
             fill="none"
-            stroke-miterlimit="10"
+            strokeMiterlimit="10"
             d="M78.5,253v-8c0,0,5.531,0,5.531,4.094S78.5,253,78.5,253z"
           />
           <path
             fill="none"
-            stroke-miterlimit="10"
+            strokeMiterlimit="10"
             d="M78.5,242v-8c0,0,5.531,0,5.531,4.094S78.5,242,78.5,242z"
           />
           <path
             fill="none"
-            stroke-miterlimit="10"
+            strokeMiterlimit="10"
             d="M78.5,232v-8c0,0,5.531,0,5.531,4.094S78.5,232,78.5,232z"
           />
           <path
             fill="none"
-            stroke-miterlimit="10"
+            strokeMiterlimit="10"
             d="M78.5,221v-8c0,0,5.531,0,5.531,4.094S78.5,221,78.5,221z"
           />
           <path
             fill="none"
-            stroke-miterlimit="10"
+            strokeMiterlimit="10"
             d="M78.5,211v-8c0,0,5.531,0,5.531,4.094S78.5,211,78.5,211z"
           />
           <ellipse
             fill="#2B2D42"
-            stroke-miterlimit="10"
+            strokeMiterlimit="10"
             cx="186.07"
             cy="121.449"
             rx="3.917"
@@ -399,19 +399,19 @@ const Background = ({ style }: Props) => {
           />
           <path
             fill="none"
-            stroke-miterlimit="10"
+            strokeMiterlimit="10"
             d="M196.485,128.836c-2.557,2.176-6.214,3.539-10.276,3.539
           c-4.319,0-8.182-1.541-10.75-3.963"
           />
           <path
             fill="none"
-            stroke-miterlimit="10"
+            strokeMiterlimit="10"
             d="M175.541,114.217c2.567-2.379,6.395-3.888,10.668-3.888
           c3.865,0,7.364,1.234,9.896,3.229"
           />
           <line
             fill="#FFFFFF"
-            stroke-miterlimit="10"
+            strokeMiterlimit="10"
             x1="-3"
             y1="28.5"
             x2="46"
@@ -419,7 +419,7 @@ const Background = ({ style }: Props) => {
           />
           <line
             fill="#FFFFFF"
-            stroke-miterlimit="10"
+            strokeMiterlimit="10"
             x1="-3"
             y1="34.5"
             x2="53"
@@ -427,7 +427,7 @@ const Background = ({ style }: Props) => {
           />
           <line
             fill="#FFFFFF"
-            stroke-miterlimit="10"
+            strokeMiterlimit="10"
             x1="-3"
             y1="40.5"
             x2="54"
@@ -435,7 +435,7 @@ const Background = ({ style }: Props) => {
           />
           <line
             fill="#FFFFFF"
-            stroke-miterlimit="10"
+            strokeMiterlimit="10"
             x1="-3"
             y1="46.5"
             x2="54"
@@ -443,7 +443,7 @@ const Background = ({ style }: Props) => {
           />
           <line
             fill="#FFFFFF"
-            stroke-miterlimit="10"
+            strokeMiterlimit="10"
             x1="-3"
             y1="52.5"
             x2="54"
@@ -451,7 +451,7 @@ const Background = ({ style }: Props) => {
           />
           <line
             fill="#FFFFFF"
-            stroke-miterlimit="10"
+            strokeMiterlimit="10"
             x1="-3"
             y1="57.5"
             x2="51"
@@ -459,7 +459,7 @@ const Background = ({ style }: Props) => {
           />
           <line
             fill="#FFFFFF"
-            stroke-miterlimit="10"
+            strokeMiterlimit="10"
             x1="-3"
             y1="63.5"
             x2="44"
@@ -467,26 +467,26 @@ const Background = ({ style }: Props) => {
           />
           <path
             fill="none"
-            stroke-miterlimit="10"
+            strokeMiterlimit="10"
             d="M623,64.5c2.619,0,107,0,107,0s3.5-0.445,3.5,3.2s0,80.3,0,80.3
           s-0.335,3.5-4.455,3.5s-47.045,0-47.045,0s-5.571-0.597-8.266-3.132s-53.896-40.376-53.896-40.376s-3.338-2.572-3.338-7.961
           s0-29.398,0-33.03C616.5,64.972,619.597,64.5,623,64.5z"
           />
           <path
             fill="none"
-            stroke-miterlimit="10"
+            strokeMiterlimit="10"
             d="M666.118,109.735c-8.206-1.575-14.285-7.276-14.285-14.068
           c0-8.008,8.45-14.5,18.876-14.5c10.424,0,18.874,6.492,18.874,14.5c0,7.126-6.691,13.052-15.512,14.271"
           />
           <path
             fill="none"
-            stroke-miterlimit="10"
+            strokeMiterlimit="10"
             d="M681.167,95.479c0,4.269-4.804,7.729-10.729,7.729
           s-10.729-3.46-10.729-7.729"
           />
           <ellipse
             fill="none"
-            stroke-miterlimit="10"
+            strokeMiterlimit="10"
             cx="670.396"
             cy="95.489"
             rx="4.271"
@@ -494,13 +494,13 @@ const Background = ({ style }: Props) => {
           />
           <path
             fill="none"
-            stroke-miterlimit="10"
+            strokeMiterlimit="10"
             d="M657,135.5c0,0,61.28,0,63,0s2.5-0.836,2.5-2.5c0,0,0-32.875,0-38
           c0-4.625-15.75-10.125-15.75-16.75c0-2.25,0.083-13.767,0.083-13.767"
           />
           <line
             fill="none"
-            stroke-miterlimit="10"
+            strokeMiterlimit="10"
             x1="670.5"
             y1="136"
             x2="670.5"
@@ -508,7 +508,7 @@ const Background = ({ style }: Props) => {
           />
           <ellipse
             fill="none"
-            stroke-miterlimit="10"
+            strokeMiterlimit="10"
             cx="760.354"
             cy="63.771"
             rx="8.751"
@@ -521,7 +521,7 @@ const Background = ({ style }: Props) => {
           />
           <path
             fill="none"
-            stroke-miterlimit="10"
+            strokeMiterlimit="10"
             d="M760.5,57l-1,113c0,0-24.75,1.625-24.75,19.125
           c0,9.5,10.125,19.125,24.75,19.125"
           />
@@ -532,13 +532,13 @@ const Background = ({ style }: Props) => {
           />
           <path
             fill="none"
-            stroke-miterlimit="10"
+            strokeMiterlimit="10"
             d="M760.108,177.561c6.216,0,12.34,3.479,13.963,6.401
           c-3.247,1.206-5.195,2.83-5.195,4.871s0.975,4.49,4.824,5.933c-2.041,3.437-8.402,5.988-13.2,6.081"
           />
           <path
             fill="none"
-            stroke-miterlimit="10"
+            strokeMiterlimit="10"
             d="M780,189.5h25c0,0-2.938,33-45.25,33s-44.563-33-44.563-33H615
           c0,0-9.056-0.301-19.499-7.667c-13-9.167-102-75.708-102-75.708s-7.917-6.625-16.667-6.625c-8.75,0-36.834,0-36.834,0
           s-8.5,0.115-8.5-7.904V90"
@@ -557,30 +557,30 @@ const Background = ({ style }: Props) => {
           />
           <path
             fill="none"
-            stroke-miterlimit="10"
+            strokeMiterlimit="10"
             d="M436.399,85.469c0,4.286-3.009,4.125-5.148,4.125
           s-4.898-1.018-4.898-4.125"
           />
           <path
             fill="none"
-            stroke-miterlimit="10"
+            strokeMiterlimit="10"
             d="M431.5,86v-8c0,0-0.417-5.5,8.458-5.5s53.042,0,53.042,0
           s9.5-0.333,19,6.75s101.717,76.072,107.5,80.25c5.936,4.289,8.846,5,14.833,5c11.5,0,82.667,0,82.667,0"
           />
           <path
             fill="none"
-            stroke-miterlimit="10"
+            strokeMiterlimit="10"
             d="M955.5,52c0,0,0,73.208,0,76s5.75,7.25,5.75,7.25"
           />
           <path
             fill="none"
-            stroke-miterlimit="10"
+            strokeMiterlimit="10"
             d="M837.5,287c0,0,0-111.884,0-121.55
           c0-7.95,4.396-11.363,11.012-11.363c20.988,0,84.156-12.42,84.156-61.65c0-46.937-55.835-62.27-82.835-62.27"
           />
           <path
             fill="none"
-            stroke-miterlimit="10"
+            strokeMiterlimit="10"
             d="M822,45.5h27.947c19.034,0,60.416,10.953,60.416,46.463
           c0,37.246-44.504,46.748-59.301,46.748c0,0-3.696,0.034-3.696-0.572c0-3.253,0.095-38.248,0.095-38.248s10.228-0.259,10.228-8.086
           c0-3.775-4.576-7.18-9.536-7.18c-7.98,0-10.652,4.866-10.652,7.48"
@@ -629,7 +629,7 @@ const Background = ({ style }: Props) => {
           />
           <path
             fill="none"
-            stroke-miterlimit="10"
+            strokeMiterlimit="10"
             d="M862.261,62.323c8.081,1.725,22.823,11.069,25.62,19.531"
           />
           <ellipse
@@ -641,7 +641,7 @@ const Background = ({ style }: Props) => {
           />
           <path
             fill="none"
-            stroke-miterlimit="10"
+            strokeMiterlimit="10"
             d="M906.701,152.492c1.261-3.376,3.936-5.992,7.495-5.992H964v19
           h-49.291c-4.474,0-7.537-2.604-8.111-6.917"
           />
@@ -661,7 +661,7 @@ const Background = ({ style }: Props) => {
           />
           <path
             fill="none"
-            stroke-miterlimit="10"
+            strokeMiterlimit="10"
             d="M962,282.5h-16.5c0,0,0-43.333,0-47.5
           c0-3.156-2.714-5.864-5.667-8.167c-2.974-2.318-35.025-26.403-37-27.917c-1.534-1.168-1-2.417,0.667-2.417s37.5,0,37.5,0
           s4.667,0.693,4.667,4.347s-0.167,13.654-0.167,16.82c0,4.197-3.204,1.911-4.333,1.167c-2.946-2.165-16.111-12.118-18.031-13.563
@@ -669,7 +669,7 @@ const Background = ({ style }: Props) => {
           />
           <path
             fill="none"
-            stroke-miterlimit="10"
+            strokeMiterlimit="10"
             d="M945.5,306c0,0,0-56.795,0-71c0-3.156-2.714-5.864-5.667-8.167
           c-2.974-2.318-35.025-26.403-37-27.917c-1.534-1.168-1-2.417,0.667-2.417s37.5,0,37.5,0s4.667,0.693,4.667,4.347
           s-0.167,13.654-0.167,16.82c0,4.197-3.204,1.911-4.333,1.167c-2.946-2.165-16.111-12.118-18.031-13.563
@@ -689,19 +689,19 @@ const Background = ({ style }: Props) => {
           />
           <path
             fill="none"
-            stroke-miterlimit="10"
+            strokeMiterlimit="10"
             d="M932.5,370c0,0,0-33.314,0-36s-0.563-4.5-7.438-4.5
           s-23.063,0-23.063,0s-3.5-0.063-3.5-4.125s0-60.375,0-60.375"
           />
           <path
             fill="none"
-            stroke-miterlimit="10"
+            strokeMiterlimit="10"
             d="M932.5,370c0,0,0-33.314,0-36c0-0.277-0.006-0.5-0.024-0.5H875
           c0,0-6.5,0.083-6.5-5.417s0-15.083,0-15.083s-0.667-5.5-8.083-5.5S724,307.5,724,307.5"
           />
           <ellipse
             fill="none"
-            stroke-miterlimit="10"
+            strokeMiterlimit="10"
             cx="898.563"
             cy="265.598"
             rx="6.688"
@@ -723,25 +723,25 @@ const Background = ({ style }: Props) => {
           />
           <path
             fill="none"
-            stroke-miterlimit="10"
+            strokeMiterlimit="10"
             d="M751.813,322.452c0,0.631-0.659,1.048-1.473,1.048h-0.896
           c-0.813,0-1.944-0.323-1.944-0.954v-0.099c0-0.63,0.895-1.313,1.709-1.313L751.813,322.452z"
           />
           <path
             fill="none"
-            stroke-miterlimit="10"
+            strokeMiterlimit="10"
             d="M721.5,335.625c0,0,16.563,11.875,20.688,15s7.563,3.875,9.625,3.875
           s53.188,0,53.188,0"
           />
           <path
             fill="none"
-            stroke-miterlimit="10"
+            strokeMiterlimit="10"
             d="M494.166,195.072c0,0,77.573,58.585,82.573,62.585
           c5.822,4.141,11.595,6.842,16.928,6.842s28.333,0,28.333,0"
           />
           <ellipse
             fill="none"
-            stroke-miterlimit="10"
+            strokeMiterlimit="10"
             cx="666.072"
             cy="264.044"
             rx="12.857"
@@ -749,8 +749,8 @@ const Background = ({ style }: Props) => {
           />
           <ellipse
             fill="none"
-            stroke-width="3"
-            stroke-miterlimit="10"
+            strokeWidth="3"
+            strokeMiterlimit="10"
             cx="665.778"
             cy="264.091"
             rx="4.275"
@@ -758,7 +758,7 @@ const Background = ({ style }: Props) => {
           />
           <line
             fill="none"
-            stroke-miterlimit="10"
+            strokeMiterlimit="10"
             x1="520"
             y1="302.5"
             x2="619"
@@ -766,7 +766,7 @@ const Background = ({ style }: Props) => {
           />
           <line
             fill="none"
-            stroke-miterlimit="10"
+            strokeMiterlimit="10"
             x1="435"
             y1="302.5"
             x2="470"
@@ -774,7 +774,7 @@ const Background = ({ style }: Props) => {
           />
           <line
             fill="none"
-            stroke-miterlimit="10"
+            strokeMiterlimit="10"
             x1="144"
             y1="314.5"
             x2="219"
@@ -806,7 +806,7 @@ const Background = ({ style }: Props) => {
           />
           <path
             fill="none"
-            stroke-miterlimit="10"
+            strokeMiterlimit="10"
             d="M336.5,246c0,0,0-9.453,0-11s0.876-4.511,2.862-5.692
           c3.544-2.108,26.083-19.401,28.176-20.796c2.093-1.395,3.971-2.012,5.85-2.012s32.613,0,32.613,0"
           />
@@ -833,7 +833,7 @@ const Background = ({ style }: Props) => {
           />
           <line
             fill="none"
-            stroke-miterlimit="10"
+            strokeMiterlimit="10"
             x1="319.5"
             y1="199"
             x2="319.5"
@@ -841,25 +841,25 @@ const Background = ({ style }: Props) => {
           />
           <path
             fill="none"
-            stroke-miterlimit="10"
+            strokeMiterlimit="10"
             d="M317.544,137.113c-2.342-0.652-4.025-2.46-4.025-4.589
           c0-2.678,2.664-4.848,5.951-4.848c3.286,0,5.951,2.17,5.951,4.848c0,2.03-1.531,3.768-3.704,4.49"
           />
           <path
             fill="none"
-            stroke-miterlimit="10"
+            strokeMiterlimit="10"
             d="M444.484,199.619c-0.616,0.448-1.448,0.723-2.364,0.723
           c-1.896,0-3.434-1.18-3.434-2.635c0-0.728,0.384-1.386,1.005-1.863L444.484,199.619z"
           />
           <path
             fill="none"
-            stroke-miterlimit="10"
+            strokeMiterlimit="10"
             d="M152,173.5c0,0,16.313,0,22,0c7.018,0,15.229,4.264,15.229,12.74
           c0,10.132-9.867,12.914-13.973,12.914s-31.72,0.016-36.025,0.016c-6.755,0-10.265,3.626-10.265,4.752"
           />
           <path
             fill="none"
-            stroke-miterlimit="10"
+            strokeMiterlimit="10"
             d="M156,273.5h-17c0,0-12.254-0.973-12.254-12.254
           c0-6.841,2.324-7.825,3.943-9.049"
           />
@@ -886,8 +886,8 @@ const Background = ({ style }: Props) => {
           />
           <ellipse
             fill="none"
-            stroke-width="2"
-            stroke-miterlimit="10"
+            strokeWidth="2"
+            strokeMiterlimit="10"
             cx="298.401"
             cy="265.002"
             rx="2.268"
@@ -895,8 +895,8 @@ const Background = ({ style }: Props) => {
           />
           <ellipse
             fill="none"
-            stroke-width="2"
-            stroke-miterlimit="10"
+            strokeWidth="2"
+            strokeMiterlimit="10"
             cx="298.401"
             cy="271.002"
             rx="2.268"
@@ -904,8 +904,8 @@ const Background = ({ style }: Props) => {
           />
           <ellipse
             fill="none"
-            stroke-width="2"
-            stroke-miterlimit="10"
+            strokeWidth="2"
+            strokeMiterlimit="10"
             cx="298.401"
             cy="277.002"
             rx="2.268"
@@ -913,8 +913,8 @@ const Background = ({ style }: Props) => {
           />
           <ellipse
             fill="none"
-            stroke-width="2"
-            stroke-miterlimit="10"
+            strokeWidth="2"
+            strokeMiterlimit="10"
             cx="298.401"
             cy="283.002"
             rx="2.268"
@@ -922,8 +922,8 @@ const Background = ({ style }: Props) => {
           />
           <ellipse
             fill="none"
-            stroke-width="2"
-            stroke-miterlimit="10"
+            strokeWidth="2"
+            strokeMiterlimit="10"
             cx="298.401"
             cy="289.002"
             rx="2.268"
@@ -931,7 +931,7 @@ const Background = ({ style }: Props) => {
           />
           <polyline
             fill="none"
-            stroke-miterlimit="10"
+            strokeMiterlimit="10"
             points="133.043,336.636 170.066,364.109 185.776,350.753
           219,376.408 268.838,339.061 288.68,354.353 316.568,332.899 335.876,346.671 	"
           />
@@ -993,7 +993,7 @@ const Background = ({ style }: Props) => {
           />
           <path
             fill="none"
-            stroke-miterlimit="10"
+            strokeMiterlimit="10"
             d="M365.358,325.843c-1.314,0.857-2.14,2.097-2.141,3.476
           c0,2.585,2.909,4.682,6.497,4.682c1.794,0,3.418-0.524,4.594-1.371L365.358,325.843z"
           />
@@ -1004,7 +1004,7 @@ const Background = ({ style }: Props) => {
           />
           <line
             fill="none"
-            stroke-miterlimit="10"
+            strokeMiterlimit="10"
             x1="396.667"
             y1="340.5"
             x2="422.667"
@@ -1012,27 +1012,27 @@ const Background = ({ style }: Props) => {
           />
           <path
             fill="none"
-            stroke-miterlimit="10"
+            strokeMiterlimit="10"
             d="M501,358.5c0,0,20.833,0,35,0c11,0,24.834-20,35.667-20
           c12.167,0,63.499,0,75.333,0c8.166,0,36.166,26,42.5,26c8.667,0,15.5,0,15.5,0"
           />
           <circle fill="#2B2D42" cx="637.5" cy="371.166" r="1.167" />
           <path
             fill="none"
-            stroke-miterlimit="10"
+            strokeMiterlimit="10"
             d="M962,378.5c0,0-326.177,0-344,0s-22.797,17-34.228,17
           c-6.188,0-498.772,0-498.772,0s0,5.808,7.761,5.808c8.378,0,7.981-5.808,7.981-5.808"
           />
           <path
             fill="none"
-            stroke-miterlimit="10"
+            strokeMiterlimit="10"
             d="M620,402.5c0,0,194.909,0,217.844,0c16.261,0,27.813,19,43.156,19
           c19.612,0,81,0,81,0v-43c0,0-326.177,0-344,0s-22.797,17-34.228,17c-6.188,0-499.272,0-499.272,0s0-6.114,0-7.5
           s1.751-3.439,3.839-3.439c2.924,0,31.119,0.104,32.267,0.104c1.331,0,3.621,1.319,3.621,2.813c0,0.819,0.069,8.085,0.069,8.085"
           />
           <line
             fill="none"
-            stroke-miterlimit="10"
+            strokeMiterlimit="10"
             x1="118.5"
             y1="388"
             x2="118.5"
@@ -1040,7 +1040,7 @@ const Background = ({ style }: Props) => {
           />
           <line
             fill="none"
-            stroke-miterlimit="10"
+            strokeMiterlimit="10"
             x1="114.5"
             y1="388"
             x2="114.5"
@@ -1048,7 +1048,7 @@ const Background = ({ style }: Props) => {
           />
           <line
             fill="none"
-            stroke-miterlimit="10"
+            strokeMiterlimit="10"
             x1="109.5"
             y1="388"
             x2="109.5"
@@ -1056,7 +1056,7 @@ const Background = ({ style }: Props) => {
           />
           <line
             fill="none"
-            stroke-miterlimit="10"
+            strokeMiterlimit="10"
             x1="105.5"
             y1="388"
             x2="105.5"
@@ -1064,7 +1064,7 @@ const Background = ({ style }: Props) => {
           />
           <line
             fill="none"
-            stroke-miterlimit="10"
+            strokeMiterlimit="10"
             x1="100.5"
             y1="388"
             x2="100.5"
@@ -1072,8 +1072,8 @@ const Background = ({ style }: Props) => {
           />
           <ellipse
             fill="none"
-            stroke-width="2"
-            stroke-miterlimit="10"
+            strokeWidth="2"
+            strokeMiterlimit="10"
             cx="890.388"
             cy="407.229"
             rx="2.729"
@@ -1081,7 +1081,7 @@ const Background = ({ style }: Props) => {
           />
           <path
             fill="none"
-            stroke-miterlimit="10"
+            strokeMiterlimit="10"
             d="M881.23,407.499c0-4.749,5.548-7.123,9.926-7.123"
           />
           <ellipse
@@ -1107,7 +1107,7 @@ const Background = ({ style }: Props) => {
           />
           <line
             fill="none"
-            stroke-miterlimit="10"
+            strokeMiterlimit="10"
             x1="722"
             y1="433.5"
             x2="592"
@@ -1115,47 +1115,47 @@ const Background = ({ style }: Props) => {
           />
           <path
             fill="none"
-            stroke-miterlimit="10"
+            strokeMiterlimit="10"
             d="M468.5,450c0,0,0-21.609,0-24s4.734-8.555,12.672-8.555
           c5.609,0,9.297,2.916,9.297,2.916l-8.391,6.877c0,0,11.328-0.02,12.594-0.02c0,2.578-4.063,9.923-11.135,9.923
           c-1.396,0-11.475-0.017-11.475-0.017"
           />
           <path
             fill="none"
-            stroke-miterlimit="10"
+            strokeMiterlimit="10"
             d="M57.535,449.596c0,0,10.498-7.907,13.269-9.991
           c2.457-1.848,5.142-2.104,8.196-2.104c6.333,0,158.103,0,165,0s19.598-14,23.216-14s6.784,0,6.784,0l-6.877,6.275
           c0,0,119.157,0.1,126.877,0.1c6.186,0,9.83,7.25,13.75,7.25c6.5,0,57.16-0.185,57.16-0.185"
           />
           <path
             fill="none"
-            stroke-miterlimit="10"
+            strokeMiterlimit="10"
             d="M272.257,429.779c0,0,8.244-6.125,9.259-6.723
           c1.532-0.902,2.848-1.557,3.605-1.557c2.733,0,6.662,0,7.879,0s2.189,0.099,0.991,1.201s-9.098,7.078-9.098,7.078"
           />
           <path
             fill="none"
-            stroke-miterlimit="10"
+            strokeMiterlimit="10"
             d="M292.281,429.779c0,0,11.228-7.978,12.235-8.723
           c1.908-1.412,2.848-1.557,3.605-1.557c2.91,0,10.304,0,11.879,0c1.217,0,1.845,0.063,0.646,1.166s-12.271,9.144-12.271,9.144"
           />
           <path
             fill="none"
-            stroke-miterlimit="10"
+            strokeMiterlimit="10"
             d="M318.281,429.771c0,0,13.788-10.287,15.024-11.246
           c2.343-1.817,3.497-2.024,4.427-2.024c3.574,0,12.653,0,14.587,0c1.495,0,2.265,0.103,0.793,1.521
           c-1.472,1.419-15.068,11.777-15.068,11.777"
           />
           <path
             fill="none"
-            stroke-miterlimit="10"
+            strokeMiterlimit="10"
             d="M350.042,429.764c0,0,15.233-11.928,16.757-13.055
           c2.887-2.137,4.31-2.209,5.457-2.209c4.405,0,15.595,0,17.979,0c1.842,0,2.792-0.051,0.978,1.617
           c-1.814,1.67-18.572,13.766-18.572,13.766"
           />
           <line
             fill="none"
-            stroke-miterlimit="10"
+            strokeMiterlimit="10"
             x1="266"
             y1="437.5"
             x2="283"
@@ -1163,7 +1163,7 @@ const Background = ({ style }: Props) => {
           />
           <line
             fill="none"
-            stroke-miterlimit="10"
+            strokeMiterlimit="10"
             x1="295"
             y1="437.5"
             x2="312"
@@ -1171,7 +1171,7 @@ const Background = ({ style }: Props) => {
           />
           <line
             fill="none"
-            stroke-miterlimit="10"
+            strokeMiterlimit="10"
             x1="323"
             y1="437.5"
             x2="340"
@@ -1179,7 +1179,7 @@ const Background = ({ style }: Props) => {
           />
           <line
             fill="none"
-            stroke-miterlimit="10"
+            strokeMiterlimit="10"
             x1="351"
             y1="437.5"
             x2="368"
@@ -1187,7 +1187,7 @@ const Background = ({ style }: Props) => {
           />
           <line
             fill="none"
-            stroke-miterlimit="10"
+            strokeMiterlimit="10"
             x1="380"
             y1="437.5"
             x2="397"
@@ -1195,7 +1195,7 @@ const Background = ({ style }: Props) => {
           />
           <line
             fill="none"
-            stroke-miterlimit="10"
+            strokeMiterlimit="10"
             x1="223"
             y1="416.5"
             x2="93"
@@ -1223,18 +1223,14 @@ const Background = ({ style }: Props) => {
             ry="1.077"
           />
 
-          <path
-            fill="none"
-            stroke-miterlimit="10"
-            d="M0 450 L 960 450 Z"
-          />
+          <path fill="none" strokeMiterlimit="10" d="M0 450 L 960 450 Z" />
         </Wrapper>
 
         <Animate>
           <path
             className="anim-short-fast"
             fill="none"
-            stroke-miterlimit="10"
+            strokeMiterlimit="10"
             d="M-2.927,23.867c0,0,0.075-2.367,5.827-2.367s29.1,0,29.1,0
           s6.508,0.377,13.749,6.659C54.5,35.75,54.5,34.688,54.5,37.663c0,0.917,0,15.337,0,15.337s0,2.688-15.559,14.614
           C24.755,78.487,14.675,86.5,10.653,86.5c-5.252,0-6.536,0-6.536,0s-4.772,0-5.219-2.735"
@@ -1242,7 +1238,7 @@ const Background = ({ style }: Props) => {
           <path
             className="anim-long-slow"
             fill="none"
-            stroke-miterlimit="10"
+            strokeMiterlimit="10"
             d="M35.792-2.781c0,0,20.604,16.953,24.417,19.641
           s9.854,9.64,20.229,9.64s92.563,0,92.563,0s12.75,0.667,18.083,6.583s11.583,9.5,17,9.75s79.003-0.25,86.67-0.25
           c3.963,0,14.397-4.785,22.168-10.66c12.33-9.321,25.719-18.982,27.958-20.746c23.908-18.833,26.723-20.865,26.723-20.865
@@ -1252,14 +1248,14 @@ const Background = ({ style }: Props) => {
           <path
             className="anim-short-slow"
             fill="none"
-            stroke-miterlimit="10"
+            strokeMiterlimit="10"
             d="M146,39.5h-32c0,0-3.125-0.007-8.428,3.799
           c-4.012,2.88-79.328,59.026-79.328,59.026"
           />
           <path
             className="anim-long-fast"
             fill="none"
-            stroke-miterlimit="10"
+            strokeMiterlimit="10"
             d="M-0.083,176.896c0,0,119.875-88.782,123.708-91.699
           c3.833-2.916,9.042-4.697,13.042-4.697c2.691,0,144.833-0.125,154.896-0.125c26.313,0,45.938-34.875,65.25-34.875
           c16.937,0,426.853,0,437.187,0s9.166-7.038,9.5-8.372S803.5-2,803.5-2h71v2c0,0,0,21.711,0,25
@@ -1268,7 +1264,7 @@ const Background = ({ style }: Props) => {
           <path
             className="anim-long-slow"
             fill="none"
-            stroke-miterlimit="10"
+            strokeMiterlimit="10"
             d="M532.048,30.5c0,0,1.246-14.799,20.09-14.799
           c18.807,0,19.978,14.799,19.978,14.799s-157.433,0-208.515,0c-23.6,0-48.225,38-68.6,38H123.628c0,0-0.385-10.466,14.308-10.466
           c14.693,0,13.736,10.466,13.736,10.466"
@@ -1276,7 +1272,7 @@ const Background = ({ style }: Props) => {
           <path
             className="anim-short-fast"
             fill="none"
-            stroke-miterlimit="10"
+            strokeMiterlimit="10"
             d="M583.532,73.453c0,6.931,8.027,8.953,12.98,8.953
           s11.786-2.732,11.786-9.223S598,64.5,598,64.5H369c0,0-0.951,4.362-6.655,4.362c-6.368,0-6.368-4.776-6.368-4.776"
           />
@@ -1284,7 +1280,7 @@ const Background = ({ style }: Props) => {
           <path
             className="anim-long-sync"
             fill="none"
-            stroke-miterlimit="10"
+            strokeMiterlimit="10"
             d="M41.333,276.667l0.036,16.833c0,0-11.369,0-19.703,0
           c-4.955,0-8.167-4.547-8.167-9.547c0-2.864,0-83.62,0-89.62s4.76-11.399,11.052-16.056s99.478-73.62,101.982-75.619
           c7.67-6.18,13.479-6.158,19.466-6.158s190,0,230.585,0c10.987,0,12.395-0.744,23.213,6.459
@@ -1294,7 +1290,7 @@ const Background = ({ style }: Props) => {
           <path
             className="anim-long-sync"
             fill="none"
-            stroke-miterlimit="10"
+            strokeMiterlimit="10"
             d="M35.333,269.667l0.036,23.833c0,0-5.369,0-13.703,0
           c-4.955,0-8.167-4.547-8.167-9.547c0-2.864,0-83.619,0-89.62c0-6,4.76-11.399,11.052-16.056s99.478-73.62,101.982-75.619
           c7.67-6.18,13.479-6.158,19.466-6.158s190,0,230.585,0c10.987,0,12.395-0.744,23.213,6.459
@@ -1304,7 +1300,7 @@ const Background = ({ style }: Props) => {
           <path
             className="anim-long-sync"
             fill="none"
-            stroke-miterlimit="10"
+            strokeMiterlimit="10"
             d="M29.333,263.667l0.036,29.833c0,0,0.631,0-7.703,0
           c-4.955,0-8.167-4.547-8.167-9.547c0-2.864,0-83.619,0-89.619s4.76-11.4,11.052-16.057c6.292-4.657,99.478-73.62,101.982-75.619
           c7.67-6.18,13.479-6.158,19.466-6.158s190,0,230.585,0c10.987,0,12.395-0.744,23.213,6.459
@@ -1314,7 +1310,7 @@ const Background = ({ style }: Props) => {
           <path
             className="anim-long-sync"
             fill="none"
-            stroke-miterlimit="10"
+            strokeMiterlimit="10"
             d="M24.333,259.667l0.036,33.833c0,0-1.973,0-2.703,0
           c-4.955,0-8.167-4.547-8.167-9.547c0-2.864,0-83.619,0-89.62c0-6,4.76-11.399,11.052-16.056s99.478-73.62,101.982-75.619
           c7.67-6.18,13.479-6.158,19.466-6.158s190,0,230.585,0c10.987,0,12.395-0.744,23.213,6.459
@@ -1324,7 +1320,7 @@ const Background = ({ style }: Props) => {
           <path
             className="anim-long-sync"
             fill="none"
-            stroke-miterlimit="10"
+            strokeMiterlimit="10"
             d="M41.333,276.667l0.036,16.833c0,0-11.369,0-19.703,0
           c-4.955,0-8.167-4.547-8.167-9.547c0-2.864,0-83.62,0-89.62s4.76-11.399,11.052-16.056s99.478-73.62,101.982-75.619
           c7.67-6.18,13.479-6.158,19.466-6.158s190,0,230.585,0c10.987,0,12.395-0.744,23.213,6.459
@@ -1335,7 +1331,7 @@ const Background = ({ style }: Props) => {
           <path
             className="anim-short-fast"
             fill="none"
-            stroke-miterlimit="10"
+            strokeMiterlimit="10"
             d="M183,121.5c0,0-39.953,0-46.169,0
           c-5.361,0-10.755,2.536-12.932,4.187c-2.127,1.613-36.413,26.839-39.209,28.929c-2.251,1.682-6.189,6.48-6.189,12.024
           c0,7.758,0,181.36,0,181.36s-9.512-0.079-9.512,6.784s7.04,7.217,9.603,7.217s9.75-0.884,9.75-7.099
@@ -1345,7 +1341,7 @@ const Background = ({ style }: Props) => {
           <path
             className="anim-short-slow"
             fill="none"
-            stroke-miterlimit="10"
+            strokeMiterlimit="10"
             d="M780,189.5h25c0,0-2.938,33-45.25,33s-44.563-33-44.563-33H615
           c0,0-9.056-0.301-19.499-7.667c-13-9.167-102-75.708-102-75.708s-7.917-6.625-16.667-6.625c-8.75,0-36.834,0-36.834,0
           s-8.5,0.115-8.5-7.904V90"
@@ -1353,7 +1349,7 @@ const Background = ({ style }: Props) => {
           <path
             className="anim-short-slow"
             fill="none"
-            stroke-miterlimit="10"
+            strokeMiterlimit="10"
             d="M431.5,86v-8c0,0-0.417-5.5,8.458-5.5s53.042,0,53.042,0
           s9.5-0.333,19,6.75s101.717,76.072,107.5,80.25c5.936,4.289,8.846,5,14.833,5c11.5,0,82.667,0,82.667,0"
           />
@@ -1361,14 +1357,14 @@ const Background = ({ style }: Props) => {
           <path
             className="anim-long-slow"
             fill="none"
-            stroke-miterlimit="10"
+            strokeMiterlimit="10"
             d="M837.5,287c0,0,0-111.884,0-121.55
           c0-7.95,4.396-11.363,11.012-11.363c20.988,0,84.156-12.42,84.156-61.65c0-46.937-55.835-62.27-82.835-62.27"
           />
           <path
             className="anim-short-fast"
             fill="none"
-            stroke-miterlimit="10"
+            strokeMiterlimit="10"
             d="M822,45.5h27.947c19.034,0,60.416,10.953,60.416,46.463
           c0,37.246-44.504,46.748-59.301,46.748c0,0-3.696,0.034-3.696-0.572c0-3.253,0.095-38.248,0.095-38.248s10.228-0.259,10.228-8.086
           c0-3.775-4.576-7.18-9.536-7.18c-7.98,0-10.652,4.866-10.652,7.48"
@@ -1377,14 +1373,14 @@ const Background = ({ style }: Props) => {
           <path
             className="anim-short-fast"
             fill="none"
-            stroke-miterlimit="10"
+            strokeMiterlimit="10"
             d="M932.5,370c0,0,0-33.314,0-36s-0.563-4.5-7.438-4.5
           s-23.063,0-23.063,0s-3.5-0.063-3.5-4.125s0-60.375,0-60.375"
           />
           <path
             className="anim-short-slow"
             fill="none"
-            stroke-miterlimit="10"
+            strokeMiterlimit="10"
             d="M932.5,370c0,0,0-33.314,0-36c0-0.277-0.006-0.5-0.024-0.5H875
           c0,0-6.5,0.083-6.5-5.417s0-15.083,0-15.083s-0.667-5.5-8.083-5.5S724,307.5,724,307.5"
           />
@@ -1392,7 +1388,7 @@ const Background = ({ style }: Props) => {
           <polyline
             className="anim-short-fast"
             fill="none"
-            stroke-miterlimit="10"
+            strokeMiterlimit="10"
             points="133.043,336.636 170.066,364.109 185.776,350.753
           219,376.408 268.838,339.061 288.68,354.353 316.568,332.899 335.876,346.671 	"
           />
@@ -1418,7 +1414,7 @@ const Background = ({ style }: Props) => {
           <path
             className="anim-short-slow"
             fill="none"
-            stroke-miterlimit="10"
+            strokeMiterlimit="10"
             d="M501,358.5c0,0,20.833,0,35,0c11,0,24.834-20,35.667-20
           c12.167,0,63.499,0,75.333,0c8.166,0,36.166,26,42.5,26c8.667,0,15.5,0,15.5,0"
           />
@@ -1426,7 +1422,7 @@ const Background = ({ style }: Props) => {
           <path
             className="anim-long-slow"
             fill="none"
-            stroke-miterlimit="10"
+            strokeMiterlimit="10"
             d="M620,402.5c0,0,194.909,0,217.844,0c16.261,0,27.813,19,43.156,19
           c19.612,0,81,0,81,0v-43c0,0-326.177,0-344,0s-22.797,17-34.228,17c-6.188,0-499.272,0-499.272,0s0-6.114,0-7.5
           s1.751-3.439,3.839-3.439c2.924,0,31.119,0.104,32.267,0.104c1.331,0,3.621,1.319,3.621,2.813c0,0.819,0.069,8.085,0.069,8.085"
@@ -1435,7 +1431,7 @@ const Background = ({ style }: Props) => {
           <path
             className="anim-long-slow"
             fill="none"
-            stroke-miterlimit="10"
+            strokeMiterlimit="10"
             d="M57.535,449.596c0,0,10.498-7.907,13.269-9.991
           c2.457-1.848,5.142-2.104,8.196-2.104c6.333,0,158.103,0,165,0s19.598-14,23.216-14s6.784,0,6.784,0l-6.877,6.275
           c0,0,119.157,0.1,126.877,0.1c6.186,0,9.83,7.25,13.75,7.25c6.5,0,57.16-0.185,57.16-0.185"
@@ -1444,7 +1440,7 @@ const Background = ({ style }: Props) => {
           <path
             className="anim-long-slow-2"
             fill="none"
-            stroke-miterlimit="10"
+            strokeMiterlimit="10"
             d="M0 450 L 960 450 Z"
           />
         </Animate>

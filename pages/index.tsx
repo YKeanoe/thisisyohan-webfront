@@ -1,3 +1,4 @@
+import SkillSearchForm from '@/components/Forms/SkillSearchForm/SkillSearchForm'
 import HeadComponent, { Props as HeadProps } from '@/components/Head/Head'
 import {
   Banner,
@@ -7,9 +8,19 @@ import {
   Intro,
   IntroContainer,
   IntroInnerContainer,
+  SkillContainer,
+  SkillIconsContainer,
+  SkillIconsInnerContainer,
+  SkillInnerContainer,
+  SkillLabel,
+  SkillLogo,
+  SkillsContainer,
 } from '@/styled/pages'
 import { MainSection } from '@/styled/pages/index'
-import { Section } from '@/styled/shared'
+import { Section, SectionTitle } from '@/styled/shared'
+import Skills from 'database/skills'
+import 'lazysizes'
+import { useEffect, useState } from 'react'
 
 const Home = () => {
   const description =
@@ -41,6 +52,19 @@ const Home = () => {
     },
   ]
 
+  const [skills, setSkills] = useState(Skills(null))
+
+  const handleOnSkillSubmit = ({ skill }) => {
+    handleOnSkillChange(skill)
+  }
+
+  const handleOnSkillChange = (values) => {
+    if (values) {
+      setSkills(Skills(values.value))
+    } else {
+      setSkills(Skills(null))
+    }
+  }
   return (
     <Container>
       <HeadComponent title="Yohanes Keanoe" metatags={metatags} />
@@ -63,6 +87,35 @@ const Home = () => {
             </Intro>
           </IntroInnerContainer>
         </IntroContainer>
+      </Section>
+
+      <Section style={{ maxWidth: '1000px', paddingBottom: '40px' }}>
+        <SkillsContainer>
+          <SectionTitle>Skills</SectionTitle>
+          <SkillSearchForm
+            skills={skills}
+            onSubmit={handleOnSkillSubmit}
+            onChange={handleOnSkillChange}
+          />
+
+          <SkillIconsContainer>
+            <SkillIconsInnerContainer>
+              {skills.length > 0 &&
+                skills.map(({ key, label, logo }) => (
+                  <SkillContainer key={key}>
+                    <SkillInnerContainer>
+                      <SkillLabel>{label}</SkillLabel>
+                      <SkillLogo
+                        data-src={logo}
+                        alt={label}
+                        className={'lazyload'}
+                      />
+                    </SkillInnerContainer>
+                  </SkillContainer>
+                ))}
+            </SkillIconsInnerContainer>
+          </SkillIconsContainer>
+        </SkillsContainer>
       </Section>
     </Container>
   )

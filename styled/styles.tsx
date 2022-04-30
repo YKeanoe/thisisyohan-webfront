@@ -24,7 +24,7 @@ export const globalStyles = (
         padding: 0;
         width: 100%;
         height: 100%;
-        background-color: #010411;
+        background-color: #2b2d42;
       }
 
       html {
@@ -42,7 +42,7 @@ export const globalStyles = (
 
       body {
         font-family: 'GeoSansLight';
-        font-size: 12px;
+        font-size: 14px;
 
         @media (min-width: 768px) {
           font-size: 16px;

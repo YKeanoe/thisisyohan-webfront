@@ -309,7 +309,6 @@ const Home = () => {
           </ContactInnerContainer>
         </ContactContainer>
       </Section>
-
     </Container>
   )
 }

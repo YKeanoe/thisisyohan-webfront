@@ -82,7 +82,7 @@ export const SkillIconsContainer = styled.div`
   transition: all 0.4s ease-in-out;
 
   @media (min-width: 400px) {
-    padding: 0 20px calc(var(--s) * .25 + 40px);
+    padding: 0 20px calc(var(--s) * 0.25 + 40px);
     width: calc(var(--s) * 4);
   }
 
@@ -297,7 +297,6 @@ export const ContactWrapper = styled.div`
   flex-direction: column;
   gap: 60px;
 
-
   @media (min-width: 700px) {
     flex-direction: row;
   }
@@ -313,13 +312,13 @@ export const Contact = styled.a`
     max-width: 40px;
     width: 100%;
     fill: #fff;
-    transition: fill .3s ease-in-out;
+    transition: fill 0.3s ease-in-out;
   }
 
   p {
     margin: 0;
     text-align: center;
-    transition: color .3s ease-in-out;
+    transition: color 0.3s ease-in-out;
   }
 
   &:hover,

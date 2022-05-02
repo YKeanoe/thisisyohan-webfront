@@ -1,17 +1,21 @@
 import SkillSearchForm from '@/components/Forms/SkillSearchForm/SkillSearchForm'
 import HeadComponent, { Props as HeadProps } from '@/components/Head/Head'
+import { SpinnerDiamond } from 'spinners-react';
 import {
   Banner,
   BannerDescription,
   BannerTitle,
   Container,
+  GithubCalendarContainer,
+  GithubCalendarInnerContainer,
   GithubContainer,
-  GithubDays,
-  GithubInnerContainer,
+  GithubFailed,
   GithubMonths,
   GithubSquare,
   GithubSquares,
-  GithubWrapper,
+  GithubTotal,
+  GithubTotalContainer,
+  GithubTotalHeader,
   Intro,
   IntroContainer,
   IntroInnerContainer,
@@ -21,16 +25,18 @@ import {
   SkillInnerContainer,
   SkillLabel,
   SkillLogo,
-  SkillsContainer,
+  SkillsContainer
 } from '@/styled/pages'
 import { MainSection } from '@/styled/pages/index'
 import { Section, SectionTitle } from '@/styled/shared'
-import { dummyGithub } from '@/utils/dummyGithub'
-import { getDaysInYear, getGithubDataLevel } from '@/utils/misc'
+import { getGithubDataLevel } from '@/utils/misc'
+import Tippy from '@tippyjs/react'
 import { useGithubContributions } from 'data/useGithubContributions'
 import Skills from 'database/skills'
 import 'lazysizes'
+import moment from 'moment'
 import { useEffect, useState } from 'react'
+import 'tippy.js/dist/tippy.css';
 
 const Home = () => {
   const description =
@@ -63,9 +69,10 @@ const Home = () => {
   ]
 
   const [skills, setSkills] = useState(Skills(null))
-  const [squares, setSquares] = useState([])
+  const [squares, setSquares] = useState<{date: Date, contribution: number, level: number}[]>([])
+  const [months, setMonths] = useState<{label: string, weeks: number}[]>([])
 
-  // const { data: githubs, loading: githubLoading, error: githubError } = useGithubContributions()
+  const { data: githubs, loading: githubLoading, error: githubError } = useGithubContributions()
 
   const handleOnSkillSubmit = ({ skill }) => {
     handleOnSkillChange(skill)
@@ -79,22 +86,13 @@ const Home = () => {
     }
   }
 
-  // useEffect(() => {
-  //   console.log('githubLoading', githubLoading)
-  //   console.log('githubs', githubs)
-  //   console.log('githubError', githubError)
-  // }, [githubs, githubLoading, githubError])
-
   useEffect(() => {
-    // if(githubLoading || !githubs) return;
+    if(githubLoading || !githubs) return;
 
-    const githubs = dummyGithub
-
-    console.log(githubs)
-
-    const squares =
+    // Map github data to squares
+    const squares: {date: Date, contribution: number, level: number}[] =
       githubs.user.contributionsCollection.contributionCalendar.weeks.reduce(
-        (acc, curr) => {
+        (acc: {date: Date, contribution: number, level: number}[], curr) => {
           const datas = curr.contributionDays.map((day) => ({
             date: new Date(day.date),
             contribution: day.contributionCount,
@@ -108,15 +106,45 @@ const Home = () => {
         []
       )
 
+    // Make squares multiple of 7
     if (squares.length > 357) {
       squares.splice(0, squares.length - 357)
     }
 
-    console.log(squares)
+    // Get months data
+    const tempMonths: {label: string, days: number}[] = squares.reduce(
+      (acc, curr) => {
+        const label = moment(curr.date).format('MMM')
+        const month = acc.find((v) => v.label === label);
+
+        if(month) {
+          month.days++;
+        } else {
+          acc.push({label, days: 1})
+        }
+
+        return acc
+      },
+      []
+    )
+
+    // Convert months to
+    const months = [];
+    let leftoverDays = 0;
+
+    tempMonths.forEach(({label, days}) => {
+      months.push({label, weeks: leftoverDays > 2 ? Math.round((leftoverDays + days)/7) : Math.floor(days/7)})
+
+      if((days + leftoverDays) % 7 !== 0) {
+        leftoverDays = days % 7;
+      } else {
+        leftoverDays = 0;
+      }
+    })
 
     setSquares(squares)
-  }, [])
-  // }, [githubs, githubLoading])
+    setMonths(months)
+  }, [githubs, githubLoading])
 
   return (
     <Container>
@@ -173,41 +201,51 @@ const Home = () => {
 
       <Section style={{ maxWidth: '1000px' }}>
         <GithubContainer>
-          <GithubInnerContainer>
-            <GithubWrapper>
-              <GithubMonths>
-                <li>Jan</li>
-                <li>Feb</li>
-                <li>Mar</li>
-                <li>Apr</li>
-                <li>May</li>
-                <li>Jun</li>
-                <li>Jul</li>
-                <li>Aug</li>
-                <li>Sep</li>
-                <li>Oct</li>
-                <li>Nov</li>
-                <li>Dec</li>
-              </GithubMonths>
-              <GithubDays>
-                <li>Sun</li>
-                <li>Mon</li>
-                <li>Tue</li>
-                <li>Wed</li>
-                <li>Thu</li>
-                <li>Fri</li>
-                <li>Sat</li>
-              </GithubDays>
-              <GithubSquares>
-                {squares.map(
-                  (square) => (
-                    <GithubSquare />
-                  )
-                  // <li data-level="${level}"></li>
-                )}
-              </GithubSquares>
-            </GithubWrapper>
-          </GithubInnerContainer>
+          <SectionTitle>
+            Github Activity
+          </SectionTitle>
+          {githubLoading && <SpinnerDiamond size={100} color={'red'} />}
+
+          {githubs &&
+            <>
+              <GithubCalendarContainer>
+                <GithubCalendarInnerContainer>
+                  <GithubMonths
+                    totalWeeks={months.map(v => v.weeks)}
+                  >
+                    {months.map(v => <li key={v.label}>{v.label}</li>)}
+                  </GithubMonths>
+                  <GithubSquares>
+                    {squares.map(
+                      (square) => (
+                        <Tippy content={<span><strong>{square.contribution} contributions on</strong> {moment(square.date).format('MMMM DD, YYYY')}</span>} key={square.date.toString()}>
+                          <GithubSquare dataLevel={square.level}/>
+                        </Tippy>
+                      )
+                    )}
+                  </GithubSquares>
+                </GithubCalendarInnerContainer>
+              </GithubCalendarContainer>
+              <GithubTotalContainer>
+                <GithubTotalHeader>
+                  Total Contributions
+                </GithubTotalHeader>
+                <GithubTotal>
+                  {githubs.user.contributionsCollection.contributionCalendar.totalContributions} total
+                </GithubTotal>
+              </GithubTotalContainer>
+            </>
+          }
+
+          {githubError &&
+            <GithubFailed>
+              Github activity unavailable
+              <br/>
+              {githubError}
+            </GithubFailed>}
+
+
+
         </GithubContainer>
       </Section>
     </Container>

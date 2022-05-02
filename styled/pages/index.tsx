@@ -1,5 +1,13 @@
 import styled from '@/styled/index'
 
+interface GithubMonthsProps {
+  totalWeeks: number[]
+}
+
+interface GithubSquareProps {
+  dataLevel: number
+}
+
 export const Container = styled.div`
   position: relative;
   overflow: hidden;
@@ -173,54 +181,85 @@ export const GithubContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
 `
-export const GithubInnerContainer = styled.div`
-  --square-size: 15px;
-  --square-gap: 5px;
+export const GithubCalendarContainer = styled.div`
+  margin-bottom: 20px;
+  --square-size: 12px;
+  --square-gap: 4px;
   --week-width: calc(var(--square-size) + var(--square-gap));
+
+  ul {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+  }
 `
-export const GithubWrapper = styled.div`
+export const GithubCalendarInnerContainer = styled.div`
   display: inline-grid;
-  grid-template-areas: 'empty months' 'days squares';
   grid-gap: 10px;
-  grid-template-columns: auto 1fr;
+  grid-template-rows: auto 1fr;
 `
-export const GithubMonths = styled.ul`
-  list-style-type: none;
-  grid-area: months;
+export const GithubMonths = styled.ul<GithubMonthsProps>`
+  color: white;
   display: grid;
-  grid-template-columns:
-    calc(var(--week-width) * 4) /* Jan */
-    calc(var(--week-width) * 4) /* Feb */
-    calc(var(--week-width) * 4) /* Mar */
-    calc(var(--week-width) * 5) /* Apr */
-    calc(var(--week-width) * 4) /* May */
-    calc(var(--week-width) * 4) /* Jun */
-    calc(var(--week-width) * 5) /* Jul */
-    calc(var(--week-width) * 4) /* Aug */
-    calc(var(--week-width) * 4) /* Sep */
-    calc(var(--week-width) * 5) /* Oct */
-    calc(var(--week-width) * 4) /* Nov */
-    calc(var(--week-width) * 5) /* Dec */;
-`
-export const GithubDays = styled.ul`
-  grid-area: days;
-  list-style-type: none;
-  display: grid;
-  grid-gap: var(--square-gap);
-  grid-template-rows: repeat(7, var(--square-size));
+  grid-template-columns: ${({totalWeeks}: GithubMonthsProps) => {
+    return totalWeeks.map(v => `calc(var(--week-width) * ${v < 2 ? 2 : v})`).join(' ')
+  }};
 `
 export const GithubSquares = styled.ul`
-  grid-area: squares;
-  list-style-type: none;
   display: grid;
   grid-gap: var(--square-gap);
   grid-template-rows: repeat(7, var(--square-size));
   grid-auto-flow: column;
   grid-auto-columns: var(--square-size);
 `
-export const GithubSquare = styled.li`
+export const GithubSquare = styled.li<GithubSquareProps>`
   height: var(--square-size);
   width: var(--square-size);
-  background: red;
+  border-radius: 2px;
+  background: ${({dataLevel}: GithubSquareProps) => {
+    switch (dataLevel) {
+      case 1:
+        return '#3c4226'
+      case 2:
+        return '#5f6b33'
+      case 3:
+        return '#839541'
+      case 4:
+        return '#a7bf4f'
+      case 0:
+      default:
+        return '#222222'
+    }
+  }};
+  cursor: pointer;
+
+  &:hover {
+    border: 1px solid #ffffff55;
+  }
+`
+export const GithubTotalContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: .5em;
+`
+export const GithubTotalHeader = styled.h4`
+  color: #ccc;
+  font-size: 1em;
+  text-align: center;
+`
+export const GithubTotal = styled.p`
+  color: #fff;
+  font-weight: 700;
+  font-size: 2em;
+  margin: 0;
+  text-align: center;
+`
+export const GithubFailed = styled.p`
+  color: #b20808;
+  font-weight: 700;
+  font-size: 1.2em;
+  margin: 0;
+  text-align: center;
 `

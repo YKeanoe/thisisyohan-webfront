@@ -203,8 +203,10 @@ export const GithubCalendarInnerContainer = styled.div`
 export const GithubMonths = styled.ul<GithubMonthsProps>`
   color: white;
   display: grid;
-  grid-template-columns: ${({totalWeeks}: GithubMonthsProps) => {
-    return totalWeeks.map(v => `calc(var(--week-width) * ${v < 2 ? 2 : v})`).join(' ')
+  grid-template-columns: ${({ totalWeeks }: GithubMonthsProps) => {
+    return totalWeeks
+      .map((v) => `calc(var(--week-width) * ${v < 2 ? 2 : v})`)
+      .join(' ')
   }};
 `
 export const GithubSquares = styled.ul`
@@ -218,7 +220,7 @@ export const GithubSquare = styled.li<GithubSquareProps>`
   height: var(--square-size);
   width: var(--square-size);
   border-radius: 2px;
-  background: ${({dataLevel}: GithubSquareProps) => {
+  background: ${({ dataLevel }: GithubSquareProps) => {
     switch (dataLevel) {
       case 1:
         return '#3c4226'
@@ -242,7 +244,7 @@ export const GithubSquare = styled.li<GithubSquareProps>`
 export const GithubTotalContainer = styled.div`
   display: flex;
   flex-direction: column;
-  gap: .5em;
+  gap: 0.5em;
 `
 export const GithubTotalHeader = styled.h4`
   color: #ccc;

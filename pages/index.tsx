@@ -5,7 +5,12 @@ import {
   Banner,
   BannerDescription,
   BannerTitle,
+  Contact,
+  ContactContainer,
+  ContactInnerContainer,
+  ContactWrapper,
   Container,
+  GithubCalendar,
   GithubCalendarContainer,
   GithubCalendarInnerContainer,
   GithubContainer,
@@ -37,6 +42,10 @@ import 'lazysizes'
 import moment from 'moment'
 import { useEffect, useState } from 'react'
 import 'tippy.js/dist/tippy.css'
+import LinkedinIcon from '@/components/Icons/LinkedinIcon'
+import GithubIcon from '@/components/Icons/GithubIcon'
+import Link from 'next/link'
+import MailIcon from '@/components/Icons/MailIcon'
 
 const Home = () => {
   const description =
@@ -223,32 +232,34 @@ const Home = () => {
 
           {githubs && (
             <>
-              <GithubCalendarContainer>
-                <GithubCalendarInnerContainer>
-                  <GithubMonths totalWeeks={months.map((v) => v.weeks)}>
-                    {months.map((v) => (
-                      <li key={v.label}>{v.label}</li>
-                    ))}
-                  </GithubMonths>
-                  <GithubSquares>
-                    {squares.map((square) => (
-                      <Tippy
-                        content={
-                          <span>
-                            <strong>
-                              {square.contribution} contributions on
-                            </strong>{' '}
-                            {moment(square.date).format('MMMM DD, YYYY')}
-                          </span>
-                        }
-                        key={square.date.toString()}
-                      >
-                        <GithubSquare dataLevel={square.level} />
-                      </Tippy>
-                    ))}
-                  </GithubSquares>
-                </GithubCalendarInnerContainer>
-              </GithubCalendarContainer>
+              <GithubCalendar>
+                <GithubCalendarContainer>
+                  <GithubCalendarInnerContainer>
+                    <GithubMonths totalWeeks={months.map((v) => v.weeks)}>
+                      {months.map((v) => (
+                        <li key={v.label}>{v.label}</li>
+                      ))}
+                    </GithubMonths>
+                    <GithubSquares>
+                      {squares.map((square) => (
+                        <Tippy
+                          content={
+                            <span>
+                              <strong>
+                                {square.contribution} contributions on
+                              </strong>{' '}
+                              {moment(square.date).format('MMMM DD, YYYY')}
+                            </span>
+                          }
+                          key={square.date.toString()}
+                        >
+                          <GithubSquare dataLevel={square.level} />
+                        </Tippy>
+                      ))}
+                    </GithubSquares>
+                  </GithubCalendarInnerContainer>
+                </GithubCalendarContainer>
+              </GithubCalendar>
               <GithubTotalContainer>
                 <GithubTotalHeader>Total Contributions</GithubTotalHeader>
                 <GithubTotal>
@@ -271,6 +282,34 @@ const Home = () => {
           )}
         </GithubContainer>
       </Section>
+
+      <Section>
+        <ContactContainer>
+          <ContactInnerContainer>
+            <ContactWrapper>
+              <Link href={'mailto:keanuraharjo@hotmail.com'} passHref>
+                <Contact>
+                  <MailIcon />
+                  <p>keanuraharjo@hotmail.com</p>
+                </Contact>
+              </Link>
+              <Link href={'https://www.linkedin.com/in/ykeanoe/'} passHref>
+                <Contact>
+                  <LinkedinIcon />
+                  <p>YKeanoe</p>
+                </Contact>
+              </Link>
+              <Link href={'https://github.com/YKeanoe'} passHref>
+                <Contact>
+                  <GithubIcon />
+                  <p>YKeanoe</p>
+                </Contact>
+              </Link>
+            </ContactWrapper>
+          </ContactInnerContainer>
+        </ContactContainer>
+      </Section>
+
     </Container>
   )
 }

@@ -77,11 +77,12 @@ export const SkillIconsContainer = styled.div`
   --s: 100px;
   --m: 6px;
   --f: calc(1.732 * var(--s) + 4 * var(--m) - 1px);
-  padding: 0 20px calc(var(--s) * 0.25 + 40px);
+  padding: 0 20px calc(var(--s) * 3 + 40px);
   width: calc(var(--s) * 3);
   transition: all 0.4s ease-in-out;
 
   @media (min-width: 400px) {
+    padding: 0 20px calc(var(--s) * .25 + 40px);
     width: calc(var(--s) * 4);
   }
 
@@ -117,11 +118,15 @@ export const SkillIconsInnerContainer = styled.div`
     content: '';
     width: calc(var(--s) / 2 + var(--m));
     float: left;
-    height: 120%;
+    height: 140%;
     shape-outside: repeating-linear-gradient(
       #0000 0 calc(var(--f) - 3px),
       #000 0 var(--f)
     );
+
+    @media (min-width: 400px) {
+      height: 120%;
+    }
   }
 `
 export const SkillContainer = styled.a`
@@ -183,11 +188,18 @@ export const GithubContainer = styled.div`
   align-items: center;
   justify-content: center;
 `
-export const GithubCalendarContainer = styled.div`
+export const GithubCalendar = styled.div`
   margin-bottom: 20px;
   --square-size: 12px;
   --square-gap: 4px;
   --week-width: calc(var(--square-size) + var(--square-gap));
+  overflow-x: scroll;
+  padding-left: 20px;
+  padding-bottom: 10px;
+  max-width: 100%;
+`
+export const GithubCalendarContainer = styled.div`
+  width: 840px;
 
   ul {
     padding: 0;
@@ -264,4 +276,61 @@ export const GithubFailed = styled.p`
   font-size: 1.2em;
   margin: 0;
   text-align: center;
+`
+export const ContactContainer = styled.div`
+  height: 100vh;
+  display: flex;
+  align-items: center;
+`
+export const ContactInnerContainer = styled.div`
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #edf2f4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`
+export const ContactWrapper = styled.div`
+  max-width: 800px;
+  padding: 100px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+
+
+  @media (min-width: 700px) {
+    flex-direction: row;
+  }
+`
+export const Contact = styled.a`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 160px;
+  gap: 10px;
+
+  svg {
+    max-width: 40px;
+    width: 100%;
+    fill: #fff;
+    transition: fill .3s ease-in-out;
+  }
+
+  p {
+    margin: 0;
+    text-align: center;
+    transition: color .3s ease-in-out;
+  }
+
+  &:hover,
+  &:active,
+  &:focus {
+    svg {
+      fill: #ccc;
+    }
+
+    p {
+      color: #ccc;
+    }
+  }
 `

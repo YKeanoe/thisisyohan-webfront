@@ -12,40 +12,6 @@ export const Container = styled.div`
   position: relative;
   overflow: hidden;
 `
-
-export const MainSection = styled.div`
-  min-height: 100vh;
-  height: 100%;
-  position: relative;
-  display: flex;
-  align-items: center;
-`
-export const Banner = styled.div`
-  background-color: #2b2d42;
-  height: 300px;
-  width: 100%;
-  padding: 10vh 0;
-  box-sizing: border-box;
-  box-shadow: 0px 0px 20px 0px rgb(0 0 0 / 50%);
-  color: #edf2f4;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-around;
-`
-export const BannerTitle = styled.h1`
-  font-size: 3em;
-  text-transform: uppercase;
-  font-weight: 400;
-  letter-spacing: 0.2em;
-  text-align: center;
-`
-export const BannerDescription = styled.h2`
-  font-size: 1.5em;
-  font-weight: 400;
-  text-align: center;
-`
 export const IntroContainer = styled.div`
   height: 100vh;
   display: flex;
@@ -166,6 +132,16 @@ export const SkillLogo = styled.img`
   max-width: 80%;
   max-height: 80%;
   width: 100px;
+
+  &.lazyload {
+    opacity: 0;
+  }
+
+  &.lazyloading {
+    opacity: 1;
+    transition: opacity 300ms;
+    background: url('/assets/images/loader.gif') no-repeat center;
+  }
 `
 export const SkillLabel = styled.p`
   color: white;
@@ -193,7 +169,7 @@ export const GithubCalendar = styled.div`
   --square-size: 12px;
   --square-gap: 4px;
   --week-width: calc(var(--square-size) + var(--square-gap));
-  overflow-x: scroll;
+  overflow-x: auto;
   padding-left: 20px;
   padding-bottom: 10px;
   max-width: 100%;

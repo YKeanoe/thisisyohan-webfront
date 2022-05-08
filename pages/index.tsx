@@ -1,10 +1,10 @@
 import SkillSearchForm from '@/components/Forms/SkillSearchForm/SkillSearchForm'
 import HeadComponent, { Props as HeadProps } from '@/components/Head/Head'
-import { SpinnerDiamond } from 'spinners-react'
+import GithubIcon from '@/components/Icons/GithubIcon'
+import LinkedinIcon from '@/components/Icons/LinkedinIcon'
+import MailIcon from '@/components/Icons/MailIcon'
+import ProjectsList from '@/components/ProjectsList/ProjectsList'
 import {
-  Banner,
-  BannerDescription,
-  BannerTitle,
   Contact,
   ContactContainer,
   ContactInnerContainer,
@@ -32,20 +32,24 @@ import {
   SkillLogo,
   SkillsContainer,
 } from '@/styled/pages'
-import { MainSection } from '@/styled/pages/index'
 import { Section, SectionTitle } from '@/styled/shared'
 import { getGithubDataLevel } from '@/utils/misc'
 import Tippy from '@tippyjs/react'
 import { useGithubContributions } from 'data/useGithubContributions'
-import Skills from 'database/skills'
+import { Projects } from 'database/projects'
+import { Skills } from 'database/skills'
 import 'lazysizes'
 import moment from 'moment'
-import { useEffect, useState } from 'react'
-import 'tippy.js/dist/tippy.css'
-import LinkedinIcon from '@/components/Icons/LinkedinIcon'
-import GithubIcon from '@/components/Icons/GithubIcon'
 import Link from 'next/link'
-import MailIcon from '@/components/Icons/MailIcon'
+import { useEffect, useState } from 'react'
+import { SpinnerDiamond } from 'spinners-react'
+import 'tippy.js/dist/tippy.css'
+import {
+  Banner,
+  BannerDescription,
+  BannerTitle,
+  MainSection,
+} from '../styled'
 
 const Home = () => {
   const description =
@@ -178,7 +182,9 @@ const Home = () => {
 
       <MainSection>
         <Banner>
-          <BannerTitle>Yohanes Keanoe</BannerTitle>
+          <BannerTitle style={{ textTransform: 'uppercase' }}>
+            Yohanes Keanoe
+          </BannerTitle>
           <BannerDescription>Full Stack Web Developer</BannerDescription>
         </Banner>
       </MainSection>
@@ -209,16 +215,18 @@ const Home = () => {
             <SkillIconsInnerContainer>
               {skills.length > 0 &&
                 skills.map(({ key, label, logo }) => (
-                  <SkillContainer key={key}>
-                    <SkillInnerContainer>
-                      <SkillLabel>{label}</SkillLabel>
-                      <SkillLogo
-                        data-src={logo}
-                        alt={label}
-                        className={'lazyload'}
-                      />
-                    </SkillInnerContainer>
-                  </SkillContainer>
+                  <Link href={`/skills/${key}`} passHref key={key}>
+                    <SkillContainer>
+                      <SkillInnerContainer>
+                        <SkillLabel>{label}</SkillLabel>
+                        <SkillLogo
+                          data-src={logo}
+                          alt={label}
+                          className={'lazyload'}
+                        />
+                      </SkillInnerContainer>
+                    </SkillContainer>
+                  </Link>
                 ))}
             </SkillIconsInnerContainer>
           </SkillIconsContainer>
@@ -267,7 +275,7 @@ const Home = () => {
                     githubs.user.contributionsCollection
                       .contributionCalendar.totalContributions
                   }{' '}
-                  total
+                  Total
                 </GithubTotal>
               </GithubTotalContainer>
             </>
@@ -308,6 +316,10 @@ const Home = () => {
             </ContactWrapper>
           </ContactInnerContainer>
         </ContactContainer>
+      </Section>
+
+      <Section style={{ paddingBottom: '40px' }}>
+        <ProjectsList projects={Projects()} />
       </Section>
     </Container>
   )

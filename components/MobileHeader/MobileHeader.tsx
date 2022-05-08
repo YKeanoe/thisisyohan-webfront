@@ -101,7 +101,7 @@ const NavHeader = () => {
     if (showMobileNav) {
       setShowMobileNav(false)
     }
-  }, [router.asPath])
+  }, [router.asPath, showMobileNav])
 
   // Handle scroll to top
   const handleScrollToTop = () => {

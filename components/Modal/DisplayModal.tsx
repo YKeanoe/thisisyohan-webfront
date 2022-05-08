@@ -89,27 +89,27 @@ const DisplayModal = ({
   const [innerOpen, setInnerOpen] = useState(false)
   const [offset, setOffset] = useState(0)
 
-  const imageTraversalEvent = (event: KeyboardEvent) => {
-    switch (event.code) {
-      case 'ArrowRight':
-        handleNext()
-        break
-      case 'ArrowLeft':
-        handlePrevious()
-        break
-      default:
-        break
-    }
-  }
-
   useEffect(() => {
+    const imageTraversalEvent = (event: KeyboardEvent) => {
+      switch (event.code) {
+        case 'ArrowRight':
+          handleNext()
+          break
+        case 'ArrowLeft':
+          handlePrevious()
+          break
+        default:
+          break
+      }
+    }
+
     if (selectedDisplay)
       document.addEventListener('keyup', imageTraversalEvent)
 
     return () => {
       document.removeEventListener('keyup', imageTraversalEvent)
     }
-  }, [selectedDisplay])
+  }, [selectedDisplay, handlePrevious, handleNext])
 
   useEffect(() => {
     if (isOpen) {

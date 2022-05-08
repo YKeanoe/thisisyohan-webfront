@@ -53,15 +53,15 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 }
 
 const ProjectDetail = (project: IProject) => {
-  if (!project) {
-    return <Error statusCode={404} />
-  }
-
   const [selectedDisplay, setSelectedDisplay] = useState<{
     url: string
     alt: string
     index: number
   }>(null)
+
+  if (!project) {
+    return <Error statusCode={404} />
+  }
 
   const metatags: HeadProps['metatags'] = [
     // General metatags
@@ -159,7 +159,7 @@ const ProjectDetail = (project: IProject) => {
           </TitleContainer>
 
           <MarkdownContainer>
-            <ReactMarkdown children={project.description} />
+            <ReactMarkdown>{project.description}</ReactMarkdown>
           </MarkdownContainer>
 
           {project.display.length > 0 && (

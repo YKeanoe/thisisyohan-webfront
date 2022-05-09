@@ -88,6 +88,7 @@ const Home = () => {
   const [months, setMonths] = useState<{ label: string; weeks: number }[]>(
     []
   )
+  const [showBanner, setShowBanner] = useState(false)
 
   const {
     data: githubs,
@@ -106,6 +107,10 @@ const Home = () => {
       setSkills(Skills(null))
     }
   }
+
+  useEffect(() => {
+    setShowBanner(true)
+  }, [])
 
   useEffect(() => {
     if (githubLoading || !githubs) return
@@ -181,7 +186,7 @@ const Home = () => {
       <HeadComponent title="Yohanes Keanoe" metatags={metatags} />
 
       <MainSection>
-        <Banner>
+        <Banner show={showBanner}>
           <BannerTitle style={{ textTransform: 'uppercase' }}>
             Yohanes Keanoe
           </BannerTitle>

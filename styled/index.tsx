@@ -2,6 +2,10 @@ import styled from '@emotion/styled'
 
 export default styled
 
+interface BannerProps {
+  show?: boolean
+}
+
 export const MainSection = styled.div`
   min-height: 100vh;
   height: 100%;
@@ -9,7 +13,7 @@ export const MainSection = styled.div`
   display: flex;
   align-items: center;
 `
-export const Banner = styled.div`
+export const Banner = styled.div<BannerProps>`
   background-color: #2b2d42;
   height: 300px;
   width: 100%;
@@ -22,6 +26,8 @@ export const Banner = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
+  right: ${({ show }: BannerProps) => (show ? '0%' : '100%')};
+  transition: right 1s ease-in-out;
 `
 export const BannerTitle = styled.h1`
   font-size: 3em;

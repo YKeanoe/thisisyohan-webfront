@@ -24,12 +24,12 @@ import {
 } from '@/styled/pages/projects'
 import { IProject, Project, Projects } from 'database/projects'
 import { Skill } from 'database/skills'
+import 'lazysizes'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import Error from 'next/error'
 import Link from 'next/link'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import ReactMarkdown from 'react-markdown'
-import 'lazysizes'
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const projects = Projects()
@@ -58,6 +58,7 @@ const ProjectDetail = (project: IProject) => {
     alt: string
     index: number
   }>(null)
+  const [showBanner, setShowBanner] = useState(false)
 
   if (!project) {
     return <Error statusCode={404} />
@@ -116,12 +117,16 @@ const ProjectDetail = (project: IProject) => {
     setSelectedDisplay({ ...project.display[newIndex], index: newIndex })
   }
 
+  useEffect(() => {
+    setShowBanner(true)
+  }, [])
+
   return (
     <Container>
       <HeadComponent title={project.title} metatags={metatags} />
 
       <MainSection>
-        <Banner>
+        <Banner show={showBanner}>
           <BannerTitle>{project.title}</BannerTitle>
           <BannerDescription>Yohanes Keanoe</BannerDescription>
         </Banner>

@@ -15,9 +15,10 @@ import {
 } from '@/styled/pages/skills'
 import { IProject, Projects } from 'database/projects'
 import { ISkill, Skill, Skills } from 'database/skills'
+import 'lazysizes'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import Error from 'next/error'
-import 'lazysizes'
+import { useEffect, useState } from 'react'
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const skills = Skills()
@@ -58,6 +59,8 @@ const ProjectDetail = ({ projects, skill }: SkillListProps) => {
     return <Error statusCode={404} />
   }
 
+  const [showBanner, setShowBanner] = useState(false)
+
   const description = `List of Yohanes' projects using ${skill.label}`
 
   const metatags: HeadProps['metatags'] = [
@@ -86,12 +89,16 @@ const ProjectDetail = ({ projects, skill }: SkillListProps) => {
     },
   ]
 
+  useEffect(() => {
+    setShowBanner(true)
+  }, [])
+
   return (
     <Container>
       <HeadComponent title={skill.label} metatags={metatags} />
 
       <MainSection>
-        <Banner>
+        <Banner show={showBanner}>
           <BannerTitle>{skill.label}</BannerTitle>
           <BannerDescription>Yohanes Keanoe</BannerDescription>
         </Banner>

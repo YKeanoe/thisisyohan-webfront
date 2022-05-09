@@ -51,6 +51,12 @@ interface SkillListProps {
 }
 
 const ProjectDetail = ({ projects, skill }: SkillListProps) => {
+  const [showBanner, setShowBanner] = useState(false)
+
+  useEffect(() => {
+    setShowBanner(true)
+  }, [])
+
   if (!skill) {
     return <Error statusCode={404} />
   }
@@ -58,8 +64,6 @@ const ProjectDetail = ({ projects, skill }: SkillListProps) => {
   if (!projects || projects.length < 0) {
     return <Error statusCode={404} />
   }
-
-  const [showBanner, setShowBanner] = useState(false)
 
   const description = `List of Yohanes' projects using ${skill.label}`
 
@@ -88,10 +92,6 @@ const ProjectDetail = ({ projects, skill }: SkillListProps) => {
       content: `https://thisisyohan.com/skills/${skill.key}`,
     },
   ]
-
-  useEffect(() => {
-    setShowBanner(true)
-  }, [])
 
   return (
     <Container>

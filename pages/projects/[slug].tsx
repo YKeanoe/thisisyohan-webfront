@@ -60,6 +60,10 @@ const ProjectDetail = (project: IProject) => {
   }>(null)
   const [showBanner, setShowBanner] = useState(false)
 
+  useEffect(() => {
+    setShowBanner(true)
+  }, [])
+
   if (!project) {
     return <Error statusCode={404} />
   }
@@ -116,10 +120,6 @@ const ProjectDetail = (project: IProject) => {
 
     setSelectedDisplay({ ...project.display[newIndex], index: newIndex })
   }
-
-  useEffect(() => {
-    setShowBanner(true)
-  }, [])
 
   return (
     <Container>

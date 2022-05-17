@@ -111,11 +111,20 @@ const NavHeader = () => {
     })
   }
 
-  // Check if scroll has pass scrollThreshold
-  const hasPassThreshold = () => scrollY >= scrollThreshold
-
   // Check if homepage
   const isHomepage = () => router.pathname === '/'
+
+  // Check if scroll has pass scrollThreshold
+  const hasPassThreshold = () => {
+    if (isHomepage()) {
+      if (typeof window === 'undefined') return false
+      const point: HTMLElement = window.document.querySelector('#contact')
+      if (!point) return false
+      return scrollY >= point.offsetTop + point.offsetHeight / 2
+    } else {
+      return scrollY >= scrollThreshold
+    }
+  }
 
   return (
     <Header

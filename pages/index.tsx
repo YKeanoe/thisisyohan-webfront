@@ -296,7 +296,7 @@ const Home = () => {
         </GithubContainer>
       </Section>
 
-      <Section>
+      <Section id="contact">
         <ContactContainer>
           <ContactInnerContainer>
             <ContactWrapper>

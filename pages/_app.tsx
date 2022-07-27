@@ -6,6 +6,7 @@ import Layout from 'layouts'
 import App, { AppProps } from 'next/app'
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
+import * as gtag from 'utils/gtag'
 const clientSideEmotionCache = createEmotionCache()
 
 interface MyAppProps extends AppProps {
@@ -23,6 +24,7 @@ export const MyApp = ({
     const handleRouteChange = (url, { shallow }) => {
       if (typeof window !== 'undefined') {
         if (!shallow) window.scrollTo(0, 0)
+        gtag.pageview(url)
       }
     }
 

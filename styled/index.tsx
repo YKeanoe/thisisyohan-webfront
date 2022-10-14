@@ -1,5 +1,5 @@
 import styled from '@emotion/styled'
-import { motion, MotionConfig, Variants } from 'framer-motion'
+import { motion } from 'framer-motion'
 
 export default styled
 

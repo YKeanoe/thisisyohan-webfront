@@ -22,7 +22,7 @@ const skills: ISkill[] = [
   },
   {
     key: 'after-effect',
-    label: 'Adobe After Effet',
+    label: 'Adobe After Effect',
     logo: '/assets/images/skills/after-effect.png',
   },
   {

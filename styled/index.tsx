@@ -1,11 +1,7 @@
 import styled from '@emotion/styled'
-import { motion, MotionConfig, Variants } from 'framer-motion'
+import { motion } from 'framer-motion'
 
 export default styled
-
-interface BannerProps {
-  show?: boolean
-}
 
 export const MainSection = styled.div`
   min-height: 100vh;

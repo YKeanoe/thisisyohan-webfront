@@ -24,11 +24,13 @@ import {
 } from '@/styled/pages/projects'
 import { IProject, Project, Projects } from 'database/projects'
 import { Skill } from 'database/skills'
+import { Variants } from 'framer-motion'
 import 'lazysizes'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import Error from 'next/error'
 import Link from 'next/link'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
+import { useInView } from 'react-intersection-observer'
 import ReactMarkdown from 'react-markdown'
 
 export const getStaticPaths: GetStaticPaths = async () => {
@@ -52,17 +54,37 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   }
 }
 
+const bannerAnimation: Variants = {
+  hidden: {
+    height: 0,
+    padding: 0,
+    width: 0,
+    opacity: 0,
+    background: '#000',
+  },
+  show: {
+    height: [0, 4, 4, 300],
+    padding: [0, 0, 0, 20],
+    width: ['0%', '100%', '100%', '100%'],
+    opacity: 1,
+    background: '#2b2d42',
+    transition: {
+      duration: 1,
+    },
+  },
+}
+
 const ProjectDetail = (project: IProject) => {
   const [selectedDisplay, setSelectedDisplay] = useState<{
     url: string
     alt: string
     index: number
   }>(null)
-  const [showBanner, setShowBanner] = useState(false)
 
-  useEffect(() => {
-    setShowBanner(true)
-  }, [])
+  const [mainRef, mainInView] = useInView({
+    threshold: 0.4,
+    triggerOnce: true,
+  })
 
   if (!project) {
     return <Error statusCode={404} />
@@ -125,8 +147,13 @@ const ProjectDetail = (project: IProject) => {
     <Container>
       <HeadComponent title={project.title} metatags={metatags} />
 
-      <MainSection>
-        <Banner show={showBanner}>
+      <MainSection ref={mainRef}>
+        <Banner
+          initial={'hidden'}
+          animate={mainInView ? 'show' : 'hidden'}
+          variants={bannerAnimation}
+        >
+          {' '}
           <BannerTitle>{project.title}</BannerTitle>
           <BannerDescription>Yohanes Keanoe</BannerDescription>
         </Banner>

@@ -1,9 +1,9 @@
-import SkillSearchForm from '@/components/Forms/SkillSearchForm/SkillSearchForm'
 import HeadComponent, { Props as HeadProps } from '@/components/Head/Head'
 import GithubIcon from '@/components/Icons/GithubIcon'
 import LinkedinIcon from '@/components/Icons/LinkedinIcon'
 import MailIcon from '@/components/Icons/MailIcon'
 import ProjectsList from '@/components/ProjectsList/ProjectsList'
+import SkillsSection from '@/components/SkillsSection/SkillsSection'
 import {
   Contact,
   ContactContainer,
@@ -24,24 +24,18 @@ import {
   Intro,
   IntroContainer,
   IntroInnerContainer,
-  SkillContainer,
-  SkillIconsContainer,
-  SkillIconsInnerContainer,
-  SkillInnerContainer,
-  SkillLabel,
-  SkillLogo,
-  SkillsContainer,
 } from '@/styled/pages'
 import { Section, SectionTitle } from '@/styled/shared'
 import { getGithubDataLevel } from '@/utils/misc'
 import Tippy from '@tippyjs/react'
 import { useGithubContributions } from 'data/useGithubContributions'
 import { Projects } from 'database/projects'
-import { Skills } from 'database/skills'
+import { Variants } from 'framer-motion'
 import 'lazysizes'
 import moment from 'moment'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
+import { useInView } from 'react-intersection-observer'
 import { SpinnerDiamond } from 'spinners-react'
 import 'tippy.js/dist/tippy.css'
 import {
@@ -50,6 +44,26 @@ import {
   BannerTitle,
   MainSection,
 } from '../styled'
+
+const bannerAnimation: Variants = {
+  hidden: {
+    height: 0,
+    padding: 0,
+    width: 0,
+    opacity: 0,
+    background: '#000',
+  },
+  show: {
+    height: [0, 4, 4, 300],
+    padding: [0, 0, 0, 20],
+    width: ['0%', '100%', '100%', '100%'],
+    opacity: 1,
+    background: '#2b2d42',
+    transition: {
+      duration: 1,
+    },
+  },
+}
 
 const Home = () => {
   const description =
@@ -81,36 +95,22 @@ const Home = () => {
     },
   ]
 
-  const [skills, setSkills] = useState(Skills(null))
   const [squares, setSquares] = useState<
     { date: Date; contribution: number; level: number }[]
   >([])
   const [months, setMonths] = useState<{ label: string; weeks: number }[]>(
     []
   )
-  const [showBanner, setShowBanner] = useState(false)
+  const [mainRef, mainInView] = useInView({
+    threshold: 0.4,
+    triggerOnce: true,
+  })
 
   const {
     data: githubs,
     loading: githubLoading,
     error: githubError,
   } = useGithubContributions()
-
-  const handleOnSkillSubmit = ({ skill }) => {
-    handleOnSkillChange(skill)
-  }
-
-  const handleOnSkillChange = (values) => {
-    if (values) {
-      setSkills(Skills(values.value))
-    } else {
-      setSkills(Skills(null))
-    }
-  }
-
-  useEffect(() => {
-    setShowBanner(true)
-  }, [])
 
   useEffect(() => {
     if (githubLoading || !githubs) return
@@ -185,8 +185,12 @@ const Home = () => {
     <Container>
       <HeadComponent title="Yohanes Keanoe" metatags={metatags} />
 
-      <MainSection>
-        <Banner show={showBanner}>
+      <MainSection ref={mainRef}>
+        <Banner
+          initial={'hidden'}
+          animate={mainInView ? 'show' : 'hidden'}
+          variants={bannerAnimation}
+        >
           <BannerTitle style={{ textTransform: 'uppercase' }}>
             Yohanes Keanoe
           </BannerTitle>
@@ -208,34 +212,7 @@ const Home = () => {
       </Section>
 
       <Section style={{ maxWidth: '1000px', paddingBottom: '40px' }}>
-        <SkillsContainer>
-          <SectionTitle>Skills</SectionTitle>
-          <SkillSearchForm
-            skills={skills}
-            onSubmit={handleOnSkillSubmit}
-            onChange={handleOnSkillChange}
-          />
-
-          <SkillIconsContainer>
-            <SkillIconsInnerContainer>
-              {skills.length > 0 &&
-                skills.map(({ key, label, logo }) => (
-                  <Link href={`/skills/${key}`} passHref key={key}>
-                    <SkillContainer>
-                      <SkillInnerContainer>
-                        <SkillLabel>{label}</SkillLabel>
-                        <SkillLogo
-                          data-src={logo}
-                          alt={label}
-                          className={'lazyload'}
-                        />
-                      </SkillInnerContainer>
-                    </SkillContainer>
-                  </Link>
-                ))}
-            </SkillIconsInnerContainer>
-          </SkillIconsContainer>
-        </SkillsContainer>
+        <SkillsSection />
       </Section>
 
       <Section style={{ maxWidth: '1000px' }}>

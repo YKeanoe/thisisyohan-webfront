@@ -89,7 +89,7 @@ const SkillContainer = styled(motion.a)`
   }
 `
 const SkillInnerContainer = styled.div`
-  background: #2b2d42;
+  background: #20202c;
   position: absolute;
   height: calc(100% - 4px);
   width: calc(100% - 4px);

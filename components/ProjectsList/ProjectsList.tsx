@@ -1,15 +1,17 @@
 import styled from '@/styled/index'
 import { IProject } from 'database/projects'
 import { Skill } from 'database/skills'
+import { motion, Variants } from 'framer-motion'
+import 'lazysizes'
 import moment from 'moment'
 import Link from 'next/link'
-import 'lazysizes'
+import { useInView } from 'react-intersection-observer'
 
 interface ContainerProps {
-  light: boolean
+  light: 1 | 0
 }
 
-const ListContainer = styled.div`
+const ListContainer = styled(motion.div)`
   max-width: 1000px;
   display: grid;
   grid-template-columns: 1fr;
@@ -24,12 +26,13 @@ const ListContainer = styled.div`
     grid-template-columns: repeat(2, 1fr);
   }
 `
-const Container = styled.a<ContainerProps>`
+const Container = styled(motion.a)<ContainerProps>`
   border: 1px solid
     ${({ light }: ContainerProps) => (light ? '#2b2d42' : '#fff')};
   max-width: 400px;
   width: 100%;
-  background: #2b2d42;
+  background: #0d0d12;
+  overflow: hidden;
 
   &:hover .desc,
   &:active .desc,
@@ -108,9 +111,42 @@ export interface Props {
   light?: boolean
 }
 
+const containerAnimation: Variants = {
+  hidden: {},
+  show: {
+    transition: {
+      staggerChildren: 0.3,
+    },
+  },
+}
+
+const fadeVariants: Variants = {
+  hidden: {
+    opacity: 0,
+    height: 0,
+  },
+  show: {
+    opacity: 1,
+    height: 'auto',
+    transition: {
+      duration: 0.5,
+    },
+  },
+}
+
 const ProjectsList = ({ projects, light = false }: Props) => {
+  const [ref, inView] = useInView({
+    threshold: 0.1,
+    triggerOnce: true,
+  })
+
   return (
-    <ListContainer>
+    <ListContainer
+      ref={ref}
+      initial={'hidden'}
+      animate={inView ? 'show' : 'hidden'}
+      variants={containerAnimation}
+    >
       {projects
         .sort((a, b) => moment(b.date).diff(moment(a.date)))
         .map((project) => (
@@ -119,7 +155,7 @@ const ProjectsList = ({ projects, light = false }: Props) => {
             passHref
             key={project.id}
           >
-            <Container light={light}>
+            <Container light={light ? 1 : 0} variants={fadeVariants}>
               <CardContainer>
                 <Card
                   data-src={project.display[0].url}

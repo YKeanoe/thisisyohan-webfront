@@ -64,7 +64,7 @@ const bannerAnimation: Variants = {
     padding: [0, 0, 0, 20],
     width: ['0%', '100%', '100%', '100%'],
     opacity: 1,
-    background: '#2b2d42',
+    background: '#11111d',
     transition: {
       duration: 1,
     },

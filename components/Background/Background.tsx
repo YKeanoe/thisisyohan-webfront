@@ -1,4 +1,5 @@
 import styled from '@/styled/index'
+import { motion, Transition, Variants } from 'framer-motion'
 
 interface Props {
   style?: React.CSSProperties
@@ -8,137 +9,7 @@ const Container = styled.div`
   position: fixed;
   width: 100vw;
   height: 100vh;
-  background-color: #2b2d42;
-
-  .anim-long-slow {
-    stroke-dasharray: 5 1000;
-    animation: dash-long-s 8s linear infinite;
-    transform: translateZ(0);
-  }
-  .anim-long-slow-2 {
-    stroke-dasharray: 5 2000;
-    animation: dash-long-s-2 10s linear infinite;
-    transform: translateZ(0);
-  }
-  .anim-long-sync {
-    stroke-dasharray: 5 1200;
-    animation-name: dash-sync;
-    animation-duration: 8s;
-    animation-iteration-count: infinite;
-    animation-timing-function: linear;
-    transform: translateZ(0);
-  }
-
-  .anim-long-fast {
-    stroke-dasharray: 5 1000;
-    animation: dash-long-f 3s linear infinite;
-    transform: translateZ(0);
-  }
-  .anim-short-slow {
-    stroke-dasharray: 5 1000;
-    animation: dash-short-s 9s linear infinite;
-    transform: translateZ(0);
-  }
-  .anim-short-fast {
-    stroke-dasharray: 5 600;
-    animation: dash-short-f 3s linear infinite;
-    transform: translateZ(0);
-  }
-  @keyframes dash-short-f {
-    to {
-      stroke-dashoffset: 600;
-    }
-  }
-  @keyframes dash-short-s {
-    to {
-      stroke-dashoffset: -900;
-    }
-  }
-  @keyframes dash-long-f {
-    to {
-      stroke-dashoffset: -900;
-    }
-  }
-  @keyframes dash-long-s {
-    to {
-      stroke-dashoffset: -900;
-    }
-  }
-  @keyframes dash-long-s-2 {
-    to {
-      stroke-dashoffset: -1000;
-    }
-  }
-  @keyframes dash-sync {
-    to {
-      stroke-dashoffset: 1200;
-    }
-  }
-
-  .anim-glow {
-    opacity: 0;
-    fill: white;
-    animation-timing-function: ease-in-out;
-    animation-iteration-count: infinite;
-    transform: translateZ(0);
-  }
-  .glow-1 {
-    animation-name: glow-1;
-    animation-duration: 3s;
-  }
-  .glow-2 {
-    animation-name: glow-1;
-    animation-delay: 2s;
-    animation-duration: 4s;
-  }
-  .glow-3 {
-    animation-name: glow-1;
-    animation-delay: 7s;
-    animation-duration: 3s;
-  }
-  .glow-4 {
-    animation-name: glow-1;
-    animation-delay: 10s;
-    animation-duration: 4s;
-  }
-  .glow-5 {
-    animation-name: glow-1;
-    animation-delay: 11s;
-    animation-duration: 3s;
-  }
-  .glow-6 {
-    animation-name: glow-1;
-    animation-delay: 14s;
-    animation-duration: 4s;
-  }
-  .glow-7 {
-    animation-name: glow-1;
-    animation-delay: 15s;
-    animation-duration: 3s;
-  }
-  @keyframes glow-1 {
-    0% {
-      opacity: 0;
-    }
-    2% {
-      opacity: 0.8;
-    }
-    3% {
-      opacity: 1;
-    }
-    5% {
-      opacity: 0.8;
-    }
-    7% {
-      opacity: 1;
-    }
-    30% {
-      opacity: 0;
-    }
-    100% {
-      opacity: 0;
-    }
-  }
+  background-color: #0d0d12;
 `
 const Wrapper = styled.g`
   stroke: #555b6e;
@@ -146,6 +17,44 @@ const Wrapper = styled.g`
 const Animate = styled.g`
   stroke: #edf2f4;
 `
+const SyncContainer = styled(motion.g)``
+const ShortPoly = styled(motion.polyline)`
+  stroke-dasharray: 5 600;
+`
+const ShortPath = styled(motion.path)`
+  stroke-dasharray: 5 600;
+`
+const MediumPath = styled(motion.path)`
+  stroke-dasharray: 5 1000;
+`
+const SyncPath = styled(motion.path)`
+  stroke-dasharray: 5 1200;
+`
+const LongPath = styled(motion.path)`
+  stroke-dasharray: 5 2000;
+`
+const Ellipse = styled(motion.ellipse)`
+  fill: white;
+`
+
+const baseAnimationTransition: Transition = {
+  repeat: Infinity,
+  ease: 'linear',
+}
+
+const syncVariants: Variants = {
+  stop: {
+    strokeDashoffset: 0,
+  },
+  play: {
+    strokeDashoffset: [0, 1200],
+    transition: {
+      repeat: Infinity,
+      ease: 'linear',
+      duration: 8,
+    },
+  },
+}
 
 const Background = ({ style }: Props) => {
   return (
@@ -225,17 +134,17 @@ const Background = ({ style }: Props) => {
           S348.327,64.5,348.327,64.5s-0.456,10.332,14.125,10.332"
           />
           <path
-            fill="#2B2D42"
+            fill="#0d0d12"
             strokeMiterlimit="10"
             d="M595.466,77.319c-2.77,0-4.923-1.538-4.923-4.307s2.813-3.56,4.923-3.56
           s5.801,1.392,5.801,3.794L595.466,77.319z"
           />
           <path
-            fill="#2B2D42"
+            fill="#0d0d12"
             d="M774,235h16.046c0,0-1.719,5.47-8.022,5.47C775.719,240.47,774,235,774,235z"
           />
           <path
-            fill="#2B2D42"
+            fill="#0d0d12"
             d="M794,235h16.046c0,0-1.719,5.47-8.022,5.47C795.719,240.47,794,235,794,235z"
           />
 
@@ -333,12 +242,12 @@ const Background = ({ style }: Props) => {
           c0-6.864-8.751-6.902-9.841-6.902"
           />
           <path
-            fill="#2B2D42"
+            fill="#0d0d12"
             d="M78.386,349.484c0,0-7.398-0.062-7.398,5.276c0,5.339,5.476,5.613,7.468,5.613c1.994,0,7.584-0.687,7.584-5.521
           C86.04,349.515,79.233,349.484,78.386,349.484"
           />
           <path
-            fill="#2B2D42"
+            fill="#0d0d12"
             d="M78.461,337.08c0,0-4.085-0.034-4.085,2.914s3.023,3.1,4.124,3.1s4.188-0.379,4.188-3.05
           C82.687,337.097,78.929,337.08,78.461,337.08"
           />
@@ -390,7 +299,7 @@ const Background = ({ style }: Props) => {
             d="M78.5,211v-8c0,0,5.531,0,5.531,4.094S78.5,211,78.5,211z"
           />
           <ellipse
-            fill="#2B2D42"
+            fill="#0d0d12"
             strokeMiterlimit="10"
             cx="186.07"
             cy="121.449"
@@ -515,7 +424,7 @@ const Background = ({ style }: Props) => {
             ry="6.425"
           />
           <path
-            fill="#2B2D42"
+            fill="#0d0d12"
             d="M766.959,63.792c0,2.456-1.559,4.446-4.959,4.446c0-1.535,0-1.99,0-4.446c0-2.455,0-2.132,0-4.446
           C765.4,59.346,766.959,61.337,766.959,63.792z"
           />
@@ -526,7 +435,7 @@ const Background = ({ style }: Props) => {
           c0,9.5,10.125,19.125,24.75,19.125"
           />
           <path
-            fill="#2B2D42"
+            fill="#0d0d12"
             d="M759,63.792c0,2.455,0,2.623,0,4.446c-2.596,0-5.261-1.991-5.261-4.446c0-2.456,2.665-4.446,5.261-4.446
           C759,60.945,759,61.337,759,63.792z"
           />
@@ -544,14 +453,14 @@ const Background = ({ style }: Props) => {
           s-8.5,0.115-8.5-7.904V90"
           />
           <ellipse
-            fill="#2B2D42"
+            fill="#0d0d12"
             cx="775.777"
             cy="189.263"
             rx="5.387"
             ry="3.403"
           />
           <path
-            fill="#2B2D42"
+            fill="#0d0d12"
             d="M513.004,120.692c0,0-2.48,2.175-3.395,3.089s-0.469,1.633-0.469,1.633L566.594,168c0,0,1.309,1.148,2.766,0
           s3.459-2.726,3.459-2.726L513.004,120.692z"
           />
@@ -586,42 +495,42 @@ const Background = ({ style }: Props) => {
           c0-3.775-4.576-7.18-9.536-7.18c-7.98,0-10.652,4.866-10.652,7.48"
           />
           <ellipse
-            fill="#2B2D42"
+            fill="#0d0d12"
             cx="847.68"
             cy="91.983"
             rx="5.172"
             ry="3.635"
           />
           <ellipse
-            fill="#2B2D42"
+            fill="#0d0d12"
             cx="840.779"
             cy="104.932"
             rx="1.592"
             ry="1.194"
           />
           <ellipse
-            fill="#2B2D42"
+            fill="#0d0d12"
             cx="840.779"
             cy="118.932"
             rx="1.592"
             ry="1.194"
           />
           <ellipse
-            fill="#2B2D42"
+            fill="#0d0d12"
             cx="840.779"
             cy="132.932"
             rx="1.592"
             ry="1.194"
           />
           <ellipse
-            fill="#2B2D42"
+            fill="#0d0d12"
             cx="840.862"
             cy="125.87"
             rx="3.375"
             ry="2.531"
           />
           <ellipse
-            fill="#2B2D42"
+            fill="#0d0d12"
             cx="840.779"
             cy="111.932"
             rx="1.592"
@@ -633,7 +542,7 @@ const Background = ({ style }: Props) => {
             d="M862.261,62.323c8.081,1.725,22.823,11.069,25.62,19.531"
           />
           <ellipse
-            fill="#2B2D42"
+            fill="#0d0d12"
             cx="821.329"
             cy="45.521"
             rx="2.993"
@@ -646,14 +555,14 @@ const Background = ({ style }: Props) => {
           h-49.291c-4.474,0-7.537-2.604-8.111-6.917"
           />
           <ellipse
-            fill="#2B2D42"
+            fill="#0d0d12"
             cx="906.666"
             cy="153.112"
             rx="1.991"
             ry="1.414"
           />
           <ellipse
-            fill="#2B2D42"
+            fill="#0d0d12"
             cx="906.728"
             cy="158.682"
             rx="1.053"
@@ -676,14 +585,14 @@ const Background = ({ style }: Props) => {
           c-1.109-0.835-2.518-2.771-0.136-2.771c3,0,14.484,0,14.484,0s0.27,2.663-3.866,2.663c-3.254,0-3.506-2.186-3.506-2.186"
           />
           <ellipse
-            fill="#2B2D42"
+            fill="#0d0d12"
             cx="945.406"
             cy="305.875"
             rx="3.156"
             ry="2.5"
           />
           <path
-            fill="#2B2D42"
+            fill="#0d0d12"
             d="M941.653,373.923c-0.962,0-3.554-0.04-9.26-0.04c-5.708,0-7.457,0.04-9.284,0.04c-0.833,0-0.917-0.409-0.667-1.173
           c1.221-3.732,5.214-6.468,9.951-6.468c4.903,0,9.011,2.934,10.068,6.867C942.635,373.793,942.343,373.923,941.653,373.923z"
           />
@@ -708,14 +617,14 @@ const Background = ({ style }: Props) => {
             ry="5.085"
           />
           <ellipse
-            fill="#2B2D42"
+            fill="#0d0d12"
             cx="898.473"
             cy="265.29"
             rx="3.221"
             ry="2.631"
           />
           <ellipse
-            fill="#2B2D42"
+            fill="#0d0d12"
             cx="723.754"
             cy="307.337"
             rx="4.502"
@@ -781,27 +690,27 @@ const Background = ({ style }: Props) => {
             y2="314.5"
           />
           <path
-            fill="#2B2D42"
+            fill="#0d0d12"
             d="M451.125,280c0,0-1.283-1.784-2.865-1.784S445.396,280,445.396,280c1.064,0,1.283,0,2.865,0S449.595,280,451.125,280z"
           />
           <path
-            fill="#2B2D42"
+            fill="#0d0d12"
             d="M459.125,280c0,0-1.283-1.784-2.865-1.784S453.396,280,453.396,280c1.064,0,1.283,0,2.865,0S457.595,280,459.125,280z"
           />
           <path
-            fill="#2B2D42"
+            fill="#0d0d12"
             d="M467.125,280c0,0-1.283-1.784-2.865-1.784S461.396,280,461.396,280c1.064,0,1.283,0,2.865,0S465.595,280,467.125,280z"
           />
           <path
-            fill="#2B2D42"
+            fill="#0d0d12"
             d="M467.125,283c0,0-1.283,1.784-2.865,1.784S461.396,283,461.396,283c1.064,0,1.283,0,2.865,0S465.595,283,467.125,283z"
           />
           <path
-            fill="#2B2D42"
+            fill="#0d0d12"
             d="M459.125,283c0,0-1.283,1.784-2.865,1.784S453.396,283,453.396,283c1.064,0,1.283,0,2.865,0S457.595,283,459.125,283z"
           />
           <path
-            fill="#2B2D42"
+            fill="#0d0d12"
             d="M451.125,283c0,0-1.283,1.784-2.865,1.784S445.396,283,445.396,283c1.064,0,1.283,0,2.865,0S449.595,283,451.125,283z"
           />
           <path
@@ -811,21 +720,21 @@ const Background = ({ style }: Props) => {
           c3.544-2.108,26.083-19.401,28.176-20.796c2.093-1.395,3.971-2.012,5.85-2.012s32.613,0,32.613,0"
           />
           <ellipse
-            fill="#2B2D42"
+            fill="#0d0d12"
             cx="343.792"
             cy="184.375"
             rx="4.625"
             ry="3.292"
           />
           <ellipse
-            fill="#2B2D42"
+            fill="#0d0d12"
             cx="389.792"
             cy="162.375"
             rx="4.625"
             ry="3.292"
           />
           <ellipse
-            fill="#2B2D42"
+            fill="#0d0d12"
             cx="358.792"
             cy="150.375"
             rx="4.625"
@@ -864,21 +773,21 @@ const Background = ({ style }: Props) => {
           c0-6.841,2.324-7.825,3.943-9.049"
           />
           <ellipse
-            fill="#2B2D42"
+            fill="#0d0d12"
             cx="164.542"
             cy="149.385"
             rx="3.464"
             ry="2.483"
           />
           <ellipse
-            fill="#2B2D42"
+            fill="#0d0d12"
             cx="505.653"
             cy="251.488"
             rx="1.917"
             ry="1.428"
           />
           <ellipse
-            fill="#2B2D42"
+            fill="#0d0d12"
             cx="150.502"
             cy="298.479"
             rx="3.308"
@@ -936,56 +845,56 @@ const Background = ({ style }: Props) => {
           219,376.408 268.838,339.061 288.68,354.353 316.568,332.899 335.876,346.671 	"
           />
           <ellipse
-            fill="#2B2D42"
+            fill="#0d0d12"
             cx="133.033"
             cy="336.603"
             rx="2.344"
             ry="1.765"
           />
           <ellipse
-            fill="#2B2D42"
+            fill="#0d0d12"
             cx="169.694"
             cy="363.722"
             rx="4.871"
             ry="3.503"
           />
           <ellipse
-            fill="#2B2D42"
+            fill="#0d0d12"
             cx="185.772"
             cy="351.738"
             rx="4.502"
             ry="3.128"
           />
           <ellipse
-            fill="#2B2D42"
+            fill="#0d0d12"
             cx="218.819"
             cy="376.082"
             rx="8.547"
             ry="6.366"
           />
           <ellipse
-            fill="#2B2D42"
+            fill="#0d0d12"
             cx="268.54"
             cy="339.092"
             rx="5.05"
             ry="3.632"
           />
           <ellipse
-            fill="#2B2D42"
+            fill="#0d0d12"
             cx="288.472"
             cy="353.73"
             rx="4.36"
             ry="3.045"
           />
           <ellipse
-            fill="#2B2D42"
+            fill="#0d0d12"
             cx="316.81"
             cy="332.416"
             rx="3.564"
             ry="2.561"
           />
           <ellipse
-            fill="#2B2D42"
+            fill="#0d0d12"
             cx="335.988"
             cy="346.834"
             rx="5.77"
@@ -998,7 +907,7 @@ const Background = ({ style }: Props) => {
           c0,2.585,2.909,4.682,6.497,4.682c1.794,0,3.418-0.524,4.594-1.371L365.358,325.843z"
           />
           <path
-            fill="#2B2D42"
+            fill="#0d0d12"
             d="M367.764,327.677c-0.643,0.419-1.046,1.025-1.047,1.698c0,1.265,1.422,2.29,3.176,2.29c0.878,0,1.671-0.258,2.247-0.671
           L367.764,327.677z"
           />
@@ -1016,7 +925,7 @@ const Background = ({ style }: Props) => {
             d="M501,358.5c0,0,20.833,0,35,0c11,0,24.834-20,35.667-20
           c12.167,0,63.499,0,75.333,0c8.166,0,36.166,26,42.5,26c8.667,0,15.5,0,15.5,0"
           />
-          <circle fill="#2B2D42" cx="637.5" cy="371.166" r="1.167" />
+          <circle fill="#0d0d12" cx="637.5" cy="371.166" r="1.167" />
           <path
             fill="none"
             strokeMiterlimit="10"
@@ -1085,21 +994,21 @@ const Background = ({ style }: Props) => {
             d="M881.23,407.499c0-4.749,5.548-7.123,9.926-7.123"
           />
           <ellipse
-            fill="#2B2D42"
+            fill="#0d0d12"
             cx="836.403"
             cy="413.492"
             rx="2.066"
             ry="1.493"
           />
           <ellipse
-            fill="#2B2D42"
+            fill="#0d0d12"
             cx="829.403"
             cy="413.492"
             rx="2.066"
             ry="1.493"
           />
           <ellipse
-            fill="#2B2D42"
+            fill="#0d0d12"
             cx="822.403"
             cy="413.492"
             rx="2.066"
@@ -1202,21 +1111,21 @@ const Background = ({ style }: Props) => {
             y2="416.5"
           />
           <ellipse
-            fill="#2B2D42"
+            fill="#0d0d12"
             cx="221.563"
             cy="416.5"
             rx="7.188"
             ry="5"
           />
           <ellipse
-            fill="#2B2D42"
+            fill="#0d0d12"
             cx="92.688"
             cy="416.25"
             rx="3.063"
             ry="2.25"
           />
           <ellipse
-            fill="#2B2D42"
+            fill="#0d0d12"
             cx="431.395"
             cy="85.735"
             rx="1.813"
@@ -1227,221 +1136,278 @@ const Background = ({ style }: Props) => {
         </Wrapper>
 
         <Animate>
-          <path
-            className="anim-short-fast"
+          <ShortPath
             fill="none"
             strokeMiterlimit="10"
             d="M-2.927,23.867c0,0,0.075-2.367,5.827-2.367s29.1,0,29.1,0
-          s6.508,0.377,13.749,6.659C54.5,35.75,54.5,34.688,54.5,37.663c0,0.917,0,15.337,0,15.337s0,2.688-15.559,14.614
-          C24.755,78.487,14.675,86.5,10.653,86.5c-5.252,0-6.536,0-6.536,0s-4.772,0-5.219-2.735"
+              s6.508,0.377,13.749,6.659C54.5,35.75,54.5,34.688,54.5,37.663c0,0.917,0,15.337,0,15.337s0,2.688-15.559,14.614
+              C24.755,78.487,14.675,86.5,10.653,86.5c-5.252,0-6.536,0-6.536,0s-4.772,0-5.219-2.735"
+            initial={{ strokeDashoffset: 0 }}
+            animate={{ strokeDashoffset: 600 }}
+            transition={{ ...baseAnimationTransition, duration: 3 }}
           />
-          <path
-            className="anim-long-slow"
+          <MediumPath
             fill="none"
             strokeMiterlimit="10"
             d="M35.792-2.781c0,0,20.604,16.953,24.417,19.641
-          s9.854,9.64,20.229,9.64s92.563,0,92.563,0s12.75,0.667,18.083,6.583s11.583,9.5,17,9.75s79.003-0.25,86.67-0.25
-          c3.963,0,14.397-4.785,22.168-10.66c12.33-9.321,25.719-18.982,27.958-20.746c23.908-18.833,26.723-20.865,26.723-20.865
-          l81.531,6.779C455.283-0.457,462.286,7.5,470.076,7.5S635,7.5,635,7.5c11.013,0,22.347,17,31.934,17c12.124,0,136.566,0,136.566,0
-          V-2"
+              s9.854,9.64,20.229,9.64s92.563,0,92.563,0s12.75,0.667,18.083,6.583s11.583,9.5,17,9.75s79.003-0.25,86.67-0.25
+              c3.963,0,14.397-4.785,22.168-10.66c12.33-9.321,25.719-18.982,27.958-20.746c23.908-18.833,26.723-20.865,26.723-20.865
+              l81.531,6.779C455.283-0.457,462.286,7.5,470.076,7.5S635,7.5,635,7.5c11.013,0,22.347,17,31.934,17c12.124,0,136.566,0,136.566,0
+              V-2"
+            initial={{ strokeDashoffset: 0 }}
+            animate={{ strokeDashoffset: -900 }}
+            transition={{ ...baseAnimationTransition, duration: 8 }}
           />
-          <path
-            className="anim-short-slow"
+          <MediumPath
             fill="none"
             strokeMiterlimit="10"
-            d="M146,39.5h-32c0,0-3.125-0.007-8.428,3.799
-          c-4.012,2.88-79.328,59.026-79.328,59.026"
+            d="M146,39.5h-32c0,0-3.125-0.007-8.428,3.799 c-4.012,2.88-79.328,59.026-79.328,59.026"
+            initial={{ strokeDashoffset: 0 }}
+            animate={{ strokeDashoffset: -900 }}
+            transition={{ ...baseAnimationTransition, duration: 9 }}
           />
-          <path
-            className="anim-long-fast"
+          <MediumPath
             fill="none"
             strokeMiterlimit="10"
             d="M-0.083,176.896c0,0,119.875-88.782,123.708-91.699
-          c3.833-2.916,9.042-4.697,13.042-4.697c2.691,0,144.833-0.125,154.896-0.125c26.313,0,45.938-34.875,65.25-34.875
-          c16.937,0,426.853,0,437.187,0s9.166-7.038,9.5-8.372S803.5-2,803.5-2h71v2c0,0,0,21.711,0,25
-          c16.273,2.368,38.809,13.133,50.662,26.5c8.211,0,30.838,0,30.838,0l4.477,1.032"
+              c3.833-2.916,9.042-4.697,13.042-4.697c2.691,0,144.833-0.125,154.896-0.125c26.313,0,45.938-34.875,65.25-34.875
+              c16.937,0,426.853,0,437.187,0s9.166-7.038,9.5-8.372S803.5-2,803.5-2h71v2c0,0,0,21.711,0,25
+              c16.273,2.368,38.809,13.133,50.662,26.5c8.211,0,30.838,0,30.838,0l4.477,1.032"
+            initial={{ strokeDashoffset: 0 }}
+            animate={{ strokeDashoffset: -900 }}
+            transition={{ ...baseAnimationTransition, duration: 8 }}
           />
-          <path
-            className="anim-long-slow"
+          <MediumPath
             fill="none"
             strokeMiterlimit="10"
             d="M532.048,30.5c0,0,1.246-14.799,20.09-14.799
-          c18.807,0,19.978,14.799,19.978,14.799s-157.433,0-208.515,0c-23.6,0-48.225,38-68.6,38H123.628c0,0-0.385-10.466,14.308-10.466
-          c14.693,0,13.736,10.466,13.736,10.466"
+              c18.807,0,19.978,14.799,19.978,14.799s-157.433,0-208.515,0c-23.6,0-48.225,38-68.6,38H123.628c0,0-0.385-10.466,14.308-10.466
+              c14.693,0,13.736,10.466,13.736,10.466"
+            initial={{ strokeDashoffset: 0 }}
+            animate={{ strokeDashoffset: -900 }}
+            transition={{ ...baseAnimationTransition, duration: 8 }}
           />
-          <path
-            className="anim-short-fast"
+          <ShortPath
             fill="none"
             strokeMiterlimit="10"
             d="M583.532,73.453c0,6.931,8.027,8.953,12.98,8.953
-          s11.786-2.732,11.786-9.223S598,64.5,598,64.5H369c0,0-0.951,4.362-6.655,4.362c-6.368,0-6.368-4.776-6.368-4.776"
+              s11.786-2.732,11.786-9.223S598,64.5,598,64.5H369c0,0-0.951,4.362-6.655,4.362c-6.368,0-6.368-4.776-6.368-4.776"
+            initial={{ strokeDashoffset: 0 }}
+            animate={{ strokeDashoffset: 600 }}
+            transition={{ ...baseAnimationTransition, duration: 3 }}
           />
-
-          <path
-            className="anim-long-sync"
-            fill="none"
-            strokeMiterlimit="10"
-            d="M41.333,276.667l0.036,16.833c0,0-11.369,0-19.703,0
-          c-4.955,0-8.167-4.547-8.167-9.547c0-2.864,0-83.62,0-89.62s4.76-11.399,11.052-16.056s99.478-73.62,101.982-75.619
-          c7.67-6.18,13.479-6.158,19.466-6.158s190,0,230.585,0c10.987,0,12.395-0.744,23.213,6.459
-          c11.751,7.825,123.057,91.557,162.774,121.024c12.854,9.537,17.23,10.517,26.428,10.517c26.892,0,224,0,224,0
-          s0.989,15.618-20.979,15.618S771.126,234.5,771.126,234.5"
-          />
-          <path
-            className="anim-long-sync"
-            fill="none"
-            strokeMiterlimit="10"
-            d="M35.333,269.667l0.036,23.833c0,0-5.369,0-13.703,0
-          c-4.955,0-8.167-4.547-8.167-9.547c0-2.864,0-83.619,0-89.62c0-6,4.76-11.399,11.052-16.056s99.478-73.62,101.982-75.619
-          c7.67-6.18,13.479-6.158,19.466-6.158s190,0,230.585,0c10.987,0,12.395-0.744,23.213,6.459
-          c11.751,7.825,123.057,91.557,162.774,121.024c12.854,9.537,17.23,10.517,26.428,10.517c26.892,0,224,0,224,0
-          s0.989,15.618-20.979,15.618S771.126,234.5,771.126,234.5"
-          />
-          <path
-            className="anim-long-sync"
-            fill="none"
-            strokeMiterlimit="10"
-            d="M29.333,263.667l0.036,29.833c0,0,0.631,0-7.703,0
-          c-4.955,0-8.167-4.547-8.167-9.547c0-2.864,0-83.619,0-89.619s4.76-11.4,11.052-16.057c6.292-4.657,99.478-73.62,101.982-75.619
-          c7.67-6.18,13.479-6.158,19.466-6.158s190,0,230.585,0c10.987,0,12.395-0.744,23.213,6.459
-          c11.751,7.825,123.057,91.557,162.774,121.024c12.854,9.537,17.23,10.517,26.428,10.517c26.892,0,224,0,224,0
-          s0.989,15.618-20.979,15.618S771.126,234.5,771.126,234.5"
-          />
-          <path
-            className="anim-long-sync"
-            fill="none"
-            strokeMiterlimit="10"
-            d="M24.333,259.667l0.036,33.833c0,0-1.973,0-2.703,0
-          c-4.955,0-8.167-4.547-8.167-9.547c0-2.864,0-83.619,0-89.62c0-6,4.76-11.399,11.052-16.056s99.478-73.62,101.982-75.619
-          c7.67-6.18,13.479-6.158,19.466-6.158s190,0,230.585,0c10.987,0,12.395-0.744,23.213,6.459
-          c11.751,7.825,123.057,91.557,162.774,121.024c12.854,9.537,17.23,10.517,26.428,10.517c26.892,0,224,0,224,0
-          s0.989,15.618-20.979,15.618S771.126,234.5,771.126,234.5"
-          />
-          <path
-            className="anim-long-sync"
-            fill="none"
-            strokeMiterlimit="10"
-            d="M41.333,276.667l0.036,16.833c0,0-11.369,0-19.703,0
-          c-4.955,0-8.167-4.547-8.167-9.547c0-2.864,0-83.62,0-89.62s4.76-11.399,11.052-16.056s99.478-73.62,101.982-75.619
-          c7.67-6.18,13.479-6.158,19.466-6.158s190,0,230.585,0c10.987,0,12.395-0.744,23.213,6.459
-          c11.751,7.825,123.057,91.557,162.774,121.024c12.854,9.537,17.23,10.517,26.428,10.517c26.892,0,224,0,224,0
-          s0.989,15.618-20.979,15.618S771.126,234.5,771.126,234.5"
-          />
-
-          <path
-            className="anim-short-fast"
+          <SyncContainer initial="stop" animate="play">
+            <SyncPath
+              fill="none"
+              strokeMiterlimit="10"
+              d="M41.333,276.667l0.036,16.833c0,0-11.369,0-19.703,0
+                c-4.955,0-8.167-4.547-8.167-9.547c0-2.864,0-83.62,0-89.62s4.76-11.399,11.052-16.056s99.478-73.62,101.982-75.619
+                c7.67-6.18,13.479-6.158,19.466-6.158s190,0,230.585,0c10.987,0,12.395-0.744,23.213,6.459
+                c11.751,7.825,123.057,91.557,162.774,121.024c12.854,9.537,17.23,10.517,26.428,10.517c26.892,0,224,0,224,0
+                s0.989,15.618-20.979,15.618S771.126,234.5,771.126,234.5"
+              variants={syncVariants}
+            />
+            <SyncPath
+              fill="none"
+              strokeMiterlimit="10"
+              d="M35.333,269.667l0.036,23.833c0,0-5.369,0-13.703,0
+                c-4.955,0-8.167-4.547-8.167-9.547c0-2.864,0-83.619,0-89.62c0-6,4.76-11.399,11.052-16.056s99.478-73.62,101.982-75.619
+                c7.67-6.18,13.479-6.158,19.466-6.158s190,0,230.585,0c10.987,0,12.395-0.744,23.213,6.459
+                c11.751,7.825,123.057,91.557,162.774,121.024c12.854,9.537,17.23,10.517,26.428,10.517c26.892,0,224,0,224,0
+                s0.989,15.618-20.979,15.618S771.126,234.5,771.126,234.5"
+              variants={syncVariants}
+            />
+            <SyncPath
+              fill="none"
+              strokeMiterlimit="10"
+              d="M29.333,263.667l0.036,29.833c0,0,0.631,0-7.703,0
+                c-4.955,0-8.167-4.547-8.167-9.547c0-2.864,0-83.619,0-89.619s4.76-11.4,11.052-16.057c6.292-4.657,99.478-73.62,101.982-75.619
+                c7.67-6.18,13.479-6.158,19.466-6.158s190,0,230.585,0c10.987,0,12.395-0.744,23.213,6.459
+                c11.751,7.825,123.057,91.557,162.774,121.024c12.854,9.537,17.23,10.517,26.428,10.517c26.892,0,224,0,224,0
+                s0.989,15.618-20.979,15.618S771.126,234.5,771.126,234.5"
+              variants={syncVariants}
+            />
+            <SyncPath
+              fill="none"
+              strokeMiterlimit="10"
+              d="M24.333,259.667l0.036,33.833c0,0-1.973,0-2.703,0
+                c-4.955,0-8.167-4.547-8.167-9.547c0-2.864,0-83.619,0-89.62c0-6,4.76-11.399,11.052-16.056s99.478-73.62,101.982-75.619
+                c7.67-6.18,13.479-6.158,19.466-6.158s190,0,230.585,0c10.987,0,12.395-0.744,23.213,6.459
+                c11.751,7.825,123.057,91.557,162.774,121.024c12.854,9.537,17.23,10.517,26.428,10.517c26.892,0,224,0,224,0
+                s0.989,15.618-20.979,15.618S771.126,234.5,771.126,234.5"
+              variants={syncVariants}
+            />
+            <SyncPath
+              fill="none"
+              strokeMiterlimit="10"
+              d="M41.333,276.667l0.036,16.833c0,0-11.369,0-19.703,0
+                c-4.955,0-8.167-4.547-8.167-9.547c0-2.864,0-83.62,0-89.62s4.76-11.399,11.052-16.056s99.478-73.62,101.982-75.619
+                c7.67-6.18,13.479-6.158,19.466-6.158s190,0,230.585,0c10.987,0,12.395-0.744,23.213,6.459
+                c11.751,7.825,123.057,91.557,162.774,121.024c12.854,9.537,17.23,10.517,26.428,10.517c26.892,0,224,0,224,0
+                s0.989,15.618-20.979,15.618S771.126,234.5,771.126,234.5"
+              variants={syncVariants}
+            />
+          </SyncContainer>
+          <ShortPath
             fill="none"
             strokeMiterlimit="10"
             d="M183,121.5c0,0-39.953,0-46.169,0
-          c-5.361,0-10.755,2.536-12.932,4.187c-2.127,1.613-36.413,26.839-39.209,28.929c-2.251,1.682-6.189,6.48-6.189,12.024
-          c0,7.758,0,181.36,0,181.36s-9.512-0.079-9.512,6.784s7.04,7.217,9.603,7.217s9.75-0.884,9.75-7.099
-          c0-6.864-8.751-6.902-9.841-6.902"
+              c-5.361,0-10.755,2.536-12.932,4.187c-2.127,1.613-36.413,26.839-39.209,28.929c-2.251,1.682-6.189,6.48-6.189,12.024
+              c0,7.758,0,181.36,0,181.36s-9.512-0.079-9.512,6.784s7.04,7.217,9.603,7.217s9.75-0.884,9.75-7.099
+              c0-6.864-8.751-6.902-9.841-6.902"
+            initial={{ strokeDashoffset: 0 }}
+            animate={{ strokeDashoffset: 600 }}
+            transition={{ ...baseAnimationTransition, duration: 3 }}
           />
-
-          <path
-            className="anim-short-slow"
+          <MediumPath
             fill="none"
             strokeMiterlimit="10"
             d="M780,189.5h25c0,0-2.938,33-45.25,33s-44.563-33-44.563-33H615
-          c0,0-9.056-0.301-19.499-7.667c-13-9.167-102-75.708-102-75.708s-7.917-6.625-16.667-6.625c-8.75,0-36.834,0-36.834,0
-          s-8.5,0.115-8.5-7.904V90"
+              c0,0-9.056-0.301-19.499-7.667c-13-9.167-102-75.708-102-75.708s-7.917-6.625-16.667-6.625c-8.75,0-36.834,0-36.834,0
+              s-8.5,0.115-8.5-7.904V90"
+            initial={{ strokeDashoffset: 0 }}
+            animate={{ strokeDashoffset: -900 }}
+            transition={{ ...baseAnimationTransition, duration: 9 }}
           />
-          <path
-            className="anim-short-slow"
+          <MediumPath
             fill="none"
             strokeMiterlimit="10"
             d="M431.5,86v-8c0,0-0.417-5.5,8.458-5.5s53.042,0,53.042,0
-          s9.5-0.333,19,6.75s101.717,76.072,107.5,80.25c5.936,4.289,8.846,5,14.833,5c11.5,0,82.667,0,82.667,0"
+              s9.5-0.333,19,6.75s101.717,76.072,107.5,80.25c5.936,4.289,8.846,5,14.833,5c11.5,0,82.667,0,82.667,0"
+            initial={{ strokeDashoffset: 0 }}
+            animate={{ strokeDashoffset: -900 }}
+            transition={{ ...baseAnimationTransition, duration: 9 }}
           />
-
-          <path
-            className="anim-long-slow"
+          <MediumPath
             fill="none"
             strokeMiterlimit="10"
             d="M837.5,287c0,0,0-111.884,0-121.55
-          c0-7.95,4.396-11.363,11.012-11.363c20.988,0,84.156-12.42,84.156-61.65c0-46.937-55.835-62.27-82.835-62.27"
+              c0-7.95,4.396-11.363,11.012-11.363c20.988,0,84.156-12.42,84.156-61.65c0-46.937-55.835-62.27-82.835-62.27"
+            initial={{ strokeDashoffset: 0 }}
+            animate={{ strokeDashoffset: -900 }}
+            transition={{ ...baseAnimationTransition, duration: 8 }}
           />
-          <path
-            className="anim-short-fast"
+          <ShortPath
             fill="none"
             strokeMiterlimit="10"
             d="M822,45.5h27.947c19.034,0,60.416,10.953,60.416,46.463
-          c0,37.246-44.504,46.748-59.301,46.748c0,0-3.696,0.034-3.696-0.572c0-3.253,0.095-38.248,0.095-38.248s10.228-0.259,10.228-8.086
-          c0-3.775-4.576-7.18-9.536-7.18c-7.98,0-10.652,4.866-10.652,7.48"
+              c0,37.246-44.504,46.748-59.301,46.748c0,0-3.696,0.034-3.696-0.572c0-3.253,0.095-38.248,0.095-38.248s10.228-0.259,10.228-8.086
+              c0-3.775-4.576-7.18-9.536-7.18c-7.98,0-10.652,4.866-10.652,7.48"
+            initial={{ strokeDashoffset: 0 }}
+            animate={{ strokeDashoffset: 600 }}
+            transition={{ ...baseAnimationTransition, duration: 3 }}
           />
-
-          <path
-            className="anim-short-fast"
+          <ShortPath
             fill="none"
             strokeMiterlimit="10"
             d="M932.5,370c0,0,0-33.314,0-36s-0.563-4.5-7.438-4.5
-          s-23.063,0-23.063,0s-3.5-0.063-3.5-4.125s0-60.375,0-60.375"
+              s-23.063,0-23.063,0s-3.5-0.063-3.5-4.125s0-60.375,0-60.375"
+            initial={{ strokeDashoffset: 0 }}
+            animate={{ strokeDashoffset: 600 }}
+            transition={{ ...baseAnimationTransition, duration: 3 }}
           />
-          <path
-            className="anim-short-slow"
+          <MediumPath
             fill="none"
             strokeMiterlimit="10"
             d="M932.5,370c0,0,0-33.314,0-36c0-0.277-0.006-0.5-0.024-0.5H875
-          c0,0-6.5,0.083-6.5-5.417s0-15.083,0-15.083s-0.667-5.5-8.083-5.5S724,307.5,724,307.5"
+              c0,0-6.5,0.083-6.5-5.417s0-15.083,0-15.083s-0.667-5.5-8.083-5.5S724,307.5,724,307.5"
+            initial={{ strokeDashoffset: 0 }}
+            animate={{ strokeDashoffset: -900 }}
+            transition={{ ...baseAnimationTransition, duration: 9 }}
           />
 
-          <polyline
-            className="anim-short-fast"
+          <ShortPoly
             fill="none"
             strokeMiterlimit="10"
             points="133.043,336.636 170.066,364.109 185.776,350.753
-          219,376.408 268.838,339.061 288.68,354.353 316.568,332.899 335.876,346.671 	"
+              219,376.408 268.838,339.061 288.68,354.353 316.568,332.899 335.876,346.671 	"
+            initial={{ strokeDashoffset: 0 }}
+            animate={{ strokeDashoffset: 600 }}
+            transition={{ ...baseAnimationTransition, duration: 3 }}
           />
 
-          <ellipse
-            className="anim-glow glow-1"
+          <Ellipse
             fill="#919499"
             cx="343.792"
             cy="184.375"
             rx="4.625"
             ry="3.292"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: [0, 1, 0.7, 1, 0, 0, 0, 0, 0, 0] }}
+            transition={{
+              repeat: Infinity,
+              duration: 2,
+              type: 'spring',
+              repeatDelay: 8,
+            }}
           />
-
-          <ellipse
-            className="anim-glow glow-2"
+          <Ellipse
             fill="#919499"
             cx="150.502"
             cy="298.479"
             rx="3.308"
             ry="2.616"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: [0, 1, 0.7, 1, 0, 0, 0, 0, 0, 0] }}
+            transition={{
+              repeat: Infinity,
+              duration: 2,
+              type: 'spring',
+              repeatDelay: 3,
+            }}
           />
-
-          <path
-            className="anim-short-slow"
+          <Ellipse
+            fill="none"
+            strokeMiterlimit="10"
+            cx="760.354"
+            cy="63.771"
+            rx="8.751"
+            ry="6.425"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: [0, 1, 0.7, 1, 0, 0, 0, 0, 0, 0] }}
+            transition={{
+              repeat: Infinity,
+              duration: 2,
+              type: 'spring',
+              repeatDelay: 3,
+            }}
+          />
+          <MediumPath
             fill="none"
             strokeMiterlimit="10"
             d="M501,358.5c0,0,20.833,0,35,0c11,0,24.834-20,35.667-20
-          c12.167,0,63.499,0,75.333,0c8.166,0,36.166,26,42.5,26c8.667,0,15.5,0,15.5,0"
+              c12.167,0,63.499,0,75.333,0c8.166,0,36.166,26,42.5,26c8.667,0,15.5,0,15.5,0"
+            initial={{ strokeDashoffset: 0 }}
+            animate={{ strokeDashoffset: -900 }}
+            transition={{ ...baseAnimationTransition, duration: 9 }}
           />
-
-          <path
-            className="anim-long-slow"
+          <MediumPath
             fill="none"
             strokeMiterlimit="10"
             d="M620,402.5c0,0,194.909,0,217.844,0c16.261,0,27.813,19,43.156,19
-          c19.612,0,81,0,81,0v-43c0,0-326.177,0-344,0s-22.797,17-34.228,17c-6.188,0-499.272,0-499.272,0s0-6.114,0-7.5
-          s1.751-3.439,3.839-3.439c2.924,0,31.119,0.104,32.267,0.104c1.331,0,3.621,1.319,3.621,2.813c0,0.819,0.069,8.085,0.069,8.085"
+              c19.612,0,81,0,81,0v-43c0,0-326.177,0-344,0s-22.797,17-34.228,17c-6.188,0-499.272,0-499.272,0s0-6.114,0-7.5
+              s1.751-3.439,3.839-3.439c2.924,0,31.119,0.104,32.267,0.104c1.331,0,3.621,1.319,3.621,2.813c0,0.819,0.069,8.085,0.069,8.085"
+            initial={{ strokeDashoffset: 0 }}
+            animate={{ strokeDashoffset: -900 }}
+            transition={{ ...baseAnimationTransition, duration: 8 }}
           />
-
-          <path
-            className="anim-long-slow"
+          <MediumPath
             fill="none"
             strokeMiterlimit="10"
             d="M57.535,449.596c0,0,10.498-7.907,13.269-9.991
-          c2.457-1.848,5.142-2.104,8.196-2.104c6.333,0,158.103,0,165,0s19.598-14,23.216-14s6.784,0,6.784,0l-6.877,6.275
-          c0,0,119.157,0.1,126.877,0.1c6.186,0,9.83,7.25,13.75,7.25c6.5,0,57.16-0.185,57.16-0.185"
+              c2.457-1.848,5.142-2.104,8.196-2.104c6.333,0,158.103,0,165,0s19.598-14,23.216-14s6.784,0,6.784,0l-6.877,6.275
+              c0,0,119.157,0.1,126.877,0.1c6.186,0,9.83,7.25,13.75,7.25c6.5,0,57.16-0.185,57.16-0.185"
+            initial={{ strokeDashoffset: 0 }}
+            animate={{ strokeDashoffset: -900 }}
+            transition={{ ...baseAnimationTransition, duration: 8 }}
           />
-
-          <path
-            className="anim-long-slow-2"
+          <LongPath
             fill="none"
             strokeMiterlimit="10"
             d="M0 450 L 960 450 Z"
+            initial={{ strokeDashoffset: 0 }}
+            animate={{ strokeDashoffset: -1000 }}
+            transition={{ ...baseAnimationTransition, duration: 10 }}
           />
         </Animate>
       </svg>

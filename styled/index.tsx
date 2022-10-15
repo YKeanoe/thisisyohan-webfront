@@ -11,7 +11,7 @@ export const MainSection = styled.div`
   align-items: center;
 `
 export const Banner = styled(motion.div)`
-  background-color: #2b2d42;
+  background-color: #11111d;
   overflow: hidden;
   height: 300px;
   width: 100%;

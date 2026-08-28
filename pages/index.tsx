@@ -67,7 +67,7 @@ const bannerAnimation: Variants = {
 
 const Home = () => {
   const description =
-    'A Full Stack Web Developer with more than 4 years experiences on multiple languages and frameworks from back to front end.'
+    'A full-stack web developer with over 5 years of experience across languages and frameworks, from back-end to front-end.'
 
   const metatags: HeadProps['metatags'] = [
     // General metatags
@@ -202,10 +202,14 @@ const Home = () => {
         <IntroContainer>
           <IntroInnerContainer>
             <Intro>
-              Hi, my name is Yohanes and I am a full-stack web developer. I
-              have been developing softwares for 4 years ranging from
-              games, websites, databases, and applications. From cloud
-              server to back-end to front-end, you can take your pick.
+              Hi, I&apos;m Yohanes, a full-stack web developer based in
+              Jakarta. For over 5 years I&apos;ve been designing and shipping
+              software across the stack — games, websites, databases, and
+              applications. I work from cloud infrastructure and APIs through
+              to the interfaces people actually use, picking the language and
+              framework that fit the problem. Whether you need a back-end, a
+              front-end, or the whole product from idea to launch, I can help
+              you build it.
             </Intro>
           </IntroInnerContainer>
         </IntroContainer>

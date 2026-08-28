@@ -69,41 +69,74 @@ const widthThreshold = 900
 
 const NavHeader = () => {
   const [isMobileScreen, setIsMobileScreen] = useState(false)
-  const [showMobileNav, setShowMobileNav] = useState<boolean>(false)
-  const [scrollY, setScrollY] = useState(0)
+  const [passedThreshold, setPassedThreshold] = useState(false)
 
   const router = useRouter()
+  const isHomepage = router.pathname === '/'
 
-  // Get current scroll position
-  const getScrollPosition = () => {
-    setScrollY(window.scrollY)
-  }
-
-  // Check if screen is mobile size
-  const calculateMobileWidth = () => {
-    setIsMobileScreen(window.innerWidth < widthThreshold)
-  }
-
-  // Event listener for screen width and scroll position
   useEffect(() => {
-    calculateMobileWidth()
-    window.addEventListener('resize', calculateMobileWidth)
-    window.addEventListener('scroll', getScrollPosition)
+    const media = window.matchMedia(`(max-width: ${widthThreshold - 1}px)`)
+    const updateMobile = () => setIsMobileScreen(media.matches)
+
+    updateMobile()
+    media.addEventListener('change', updateMobile)
 
     return () => {
-      window.removeEventListener('resize', calculateMobileWidth)
-      window.removeEventListener('scroll', getScrollPosition)
+      media.removeEventListener('change', updateMobile)
     }
-  }, [router])
+  }, [])
 
-  // Close menu on route change
   useEffect(() => {
-    if (showMobileNav) {
-      setShowMobileNav(false)
-    }
-  }, [router.asPath, showMobileNav])
+    let contactMid = 0
+    let ticking = false
 
-  // Handle scroll to top
+    const measureContact = () => {
+      if (!isHomepage) return
+      const point = document.getElementById('contact')
+      if (point) {
+        contactMid = point.offsetTop + point.offsetHeight / 2
+      }
+    }
+
+    const update = () => {
+      ticking = false
+      const passed = isHomepage
+        ? window.scrollY >= contactMid
+        : window.scrollY >= scrollThreshold
+
+      setPassedThreshold((prev) => (prev === passed ? prev : passed))
+    }
+
+    const onScroll = () => {
+      if (ticking) return
+      ticking = true
+      requestAnimationFrame(update)
+    }
+
+    const onResize = () => {
+      measureContact()
+      onScroll()
+    }
+
+    measureContact()
+    update()
+
+    const resizeObserver = new ResizeObserver(() => {
+      measureContact()
+      onScroll()
+    })
+    resizeObserver.observe(document.body)
+
+    window.addEventListener('scroll', onScroll, { passive: true })
+    window.addEventListener('resize', onResize)
+
+    return () => {
+      resizeObserver.disconnect()
+      window.removeEventListener('scroll', onScroll)
+      window.removeEventListener('resize', onResize)
+    }
+  }, [isHomepage])
+
   const handleScrollToTop = () => {
     window.scrollTo({
       top: 0,
@@ -111,31 +144,16 @@ const NavHeader = () => {
     })
   }
 
-  // Check if homepage
-  const isHomepage = () => router.pathname === '/'
-
-  // Check if scroll has pass scrollThreshold
-  const hasPassThreshold = () => {
-    if (isHomepage()) {
-      if (typeof window === 'undefined') return false
-      const point: HTMLElement = window.document.querySelector('#contact')
-      if (!point) return false
-      return scrollY >= point.offsetTop + point.offsetHeight / 2
-    } else {
-      return scrollY >= scrollThreshold
-    }
-  }
-
   return (
     <Header
-      permanent={!isHomepage() || isMobileScreen}
-      show={hasPassThreshold()}
+      permanent={!isHomepage || isMobileScreen}
+      show={passedThreshold}
     >
       <HeaderInner
-        permanent={!isHomepage() || isMobileScreen}
-        show={hasPassThreshold()}
+        permanent={!isHomepage || isMobileScreen}
+        show={passedThreshold}
       >
-        {!isHomepage() && (
+        {!isHomepage && (
           <Link href={'/'} passHref>
             <Button style={{ gridArea: 'home' }}>
               <HomeIcon style={{ fill: '#fff' }} />
@@ -157,7 +175,7 @@ const NavHeader = () => {
             <GithubIcon style={{ fill: '#fff' }} />
           </Button>
         </Link>
-        {hasPassThreshold() && (
+        {passedThreshold && (
           <NonLinkButton
             style={{ gridArea: 'up' }}
             onClick={handleScrollToTop}

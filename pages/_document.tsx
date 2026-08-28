@@ -7,7 +7,6 @@ import Document, {
 } from 'next/document'
 import React, { ReactElement } from 'react'
 import createEmotionCache from '@/utils/createEmotionCache'
-import { GA_TRACKING_ID } from '@/utils/gtag'
 import createEmotionServer from '@emotion/server/create-instance'
 
 class ThisIsYohanDocument extends Document {
@@ -49,23 +48,12 @@ class ThisIsYohanDocument extends Document {
       <Html lang="en">
         <Head>
           {(this.props as any).emotionStyleTags}
-
-          {/* Global Site Tag (gtag.js) */}
-          <script
-            async
-            src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
-          />
-          <script
-            dangerouslySetInnerHTML={{
-              __html: `
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){dataLayer.push(arguments);}
-                gtag('js', new Date());
-                gtag('config', '${GA_TRACKING_ID}', {
-                  page_path: window.location.pathname,
-                });
-              `,
-            }}
+          <link
+            rel="preload"
+            href="/assets/fonts/GeosansLight.woff2"
+            as="font"
+            type="font/woff2"
+            crossOrigin="anonymous"
           />
         </Head>
         <body>

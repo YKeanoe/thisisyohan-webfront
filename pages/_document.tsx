@@ -7,6 +7,7 @@ import Document, {
 } from 'next/document'
 import React, { ReactElement } from 'react'
 import createEmotionCache from '@/utils/createEmotionCache'
+import { GA_TRACKING_ID } from '@/utils/gtag'
 import createEmotionServer from '@emotion/server/create-instance'
 
 class ThisIsYohanDocument extends Document {
@@ -49,10 +50,10 @@ class ThisIsYohanDocument extends Document {
         <Head>
           {(this.props as any).emotionStyleTags}
 
-          {/* Global Site Tag (gtag.js) - Google Analytics */}
+          {/* Global Site Tag (gtag.js) */}
           <script
             async
-            src={`https://www.googletagmanager.com/gtag/js?id=UA-113190064-2`}
+            src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
           />
           <script
             dangerouslySetInnerHTML={{
@@ -60,7 +61,7 @@ class ThisIsYohanDocument extends Document {
                 window.dataLayer = window.dataLayer || [];
                 function gtag(){dataLayer.push(arguments);}
                 gtag('js', new Date());
-                gtag('config', 'UA-113190064-2', {
+                gtag('config', '${GA_TRACKING_ID}', {
                   page_path: window.location.pathname,
                 });
               `,

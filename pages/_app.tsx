@@ -3,7 +3,8 @@ import { globalStyles } from '@/styled/styles'
 import createEmotionCache from '@/utils/createEmotionCache'
 import { CacheProvider, EmotionCache } from '@emotion/react'
 import Layout from 'layouts'
-import App, { AppProps } from 'next/app'
+import { AppProps } from 'next/app'
+import Script from 'next/script'
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
 import * as gtag from 'utils/gtag'
@@ -48,6 +49,21 @@ export const MyApp = ({
     <CacheProvider value={emotionCache}>
       {globalStyles}
 
+      <Script id="gtag-init" strategy="lazyOnload">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', '${gtag.GA_TRACKING_ID}', {
+            page_path: window.location.pathname,
+          });
+        `}
+      </Script>
+      <Script
+        src={`https://www.googletagmanager.com/gtag/js?id=${gtag.GA_TRACKING_ID}`}
+        strategy="lazyOnload"
+      />
+
       <HeadComponent title="Yohanes Keanoe" metatags={metatags}>
         <link
           rel="apple-touch-icon"
@@ -82,9 +98,5 @@ export const MyApp = ({
     </CacheProvider>
   )
 }
-
-MyApp.getInitialProps = async (appContext) => ({
-  ...(await App.getInitialProps(appContext)),
-})
 
 export default MyApp

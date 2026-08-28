@@ -1,5 +1,4 @@
 import styled from '@emotion/styled'
-import { motion } from 'framer-motion'
 
 export default styled
 
@@ -10,7 +9,7 @@ export const MainSection = styled.div`
   display: flex;
   align-items: center;
 `
-export const Banner = styled(motion.div)`
+export const Banner = styled.div`
   background-color: #11111d;
   overflow: hidden;
   height: 300px;

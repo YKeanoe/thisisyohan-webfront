@@ -1,10 +1,13 @@
 import { Global, css } from '@emotion/react'
 
 const Fonts = css`
-  // GeoSansLight
   @font-face {
     font-family: 'GeoSansLight';
-    src: url('/assets/fonts/GeosansLight.ttf') format('truetype');
+    src: url('/assets/fonts/GeosansLight.woff2') format('woff2'),
+      url('/assets/fonts/GeosansLight.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
   }
 `
 
@@ -33,7 +36,7 @@ export const globalStyles = (
         -webkit-font-smoothing: antialiased;
         -ms-overflow-style: scrollbar;
 
-        font-family: 'GeoSansLight';
+        font-family: 'GeoSansLight', system-ui, sans-serif;
 
         &.disable-scroll {
           overflow-y: hidden;
@@ -41,7 +44,7 @@ export const globalStyles = (
       }
 
       body {
-        font-family: 'GeoSansLight';
+        font-family: 'GeoSansLight', system-ui, sans-serif;
         font-size: 14px;
 
         @media (min-width: 768px) {
